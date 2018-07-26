@@ -82,17 +82,20 @@
 
 
 
-<meta name="description" content="源码： import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileOutputStream;import java.io.InputStreamReader;import java.io.Outp">
+<meta name="description" content="源码：   测试数据： 文苏洋,闫少翀,孟超张育铭,王洪展程浩男,路佳琦罗天实,wsy,ysc,mc,zymwhz,ljq,ltschn 运行结果： 闫少翀 1罗天实 1ysc 1whz 1chn 1王洪展 1lts 1孟超 1文苏洋 1张育铭 1程浩男 1zym 1ljq 1mc 1路佳琦 1wsy 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java读取txt文件">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/java读取txt文件/index.html">
 <meta property="og:site_name" content="o文蚊蚊o">
-<meta property="og:description" content="源码： import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileOutputStream;import java.io.InputStreamReader;import java.io.Outp">
+<meta property="og:description" content="源码：   测试数据： 文苏洋,闫少翀,孟超张育铭,王洪展程浩男,路佳琦罗天实,wsy,ysc,mc,zymwhz,ljq,ltschn 运行结果： 闫少翀 1罗天实 1ysc 1whz 1chn 1王洪展 1lts 1孟超 1文苏洋 1张育铭 1程浩男 1zym 1ljq 1mc 1路佳琦 1wsy 1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-26T02:27:52.315Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/java读取txt文件/![mark](![mark](http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/java读取txt文件/![mark](![mark](http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
+<meta property="og:updated_time" content="2018-07-26T03:08:57.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java读取txt文件">
-<meta name="twitter:description" content="源码： import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileOutputStream;import java.io.InputStreamReader;import java.io.Outp">
+<meta name="twitter:description" content="源码：   测试数据： 文苏洋,闫少翀,孟超张育铭,王洪展程浩男,路佳琦罗天实,wsy,ysc,mc,zymwhz,ljq,ltschn 运行结果： 闫少翀 1罗天实 1ysc 1whz 1chn 1王洪展 1lts 1孟超 1文苏洋 1张育铭 1程浩男 1zym 1ljq 1mc 1路佳琦 1wsy 1">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/26/java读取txt文件/![mark](![mark](http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
 
 
 
@@ -326,7 +329,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  253
+                  88
                 </span>
               
 
@@ -353,13 +356,8 @@
       
         <a id="more"></a>
 <p>源码：</p>
-<p>import java.io.BufferedReader;<br>import java.io.BufferedWriter;<br>import java.io.File;<br>import java.io.FileInputStream;<br>import java.io.FileOutputStream;<br>import java.io.InputStreamReader;<br>import java.io.OutputStreamWriter;<br>import java.util.HashMap;<br>import java.util.Map;</p>
-<p>public class TXTParseUtils {</p>
-<p> private static final Integer ONE = 1;</p>
-<p> public static void main(String[] args) {<br>  Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();</p>
-<p>  /<em> 读取数据 </em>/<br>  try {<br>   BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(“111.txt”)),<br>                   “UTF-8”));<br>   String lineTxt = null;<br>   while ((lineTxt = br.readLine()) != null) {<br>    String[] names = lineTxt.split(“,”);<br>    for (String name : names) {<br>     if (map.keySet().contains(name)) {<br>      map.put(name, (map.get(name) + ONE));<br>     } else {<br>      map.put(name, ONE);<br>     }<br>    }<br>   }<br>   br.close();<br>  } catch (Exception e) {<br>   System.err.println(“read errors :” + e);<br>  }</p>
-<p>  /<em> 输出数据 </em>/<br>  try {<br>   BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(“final.txt”)),<br>                   “UTF-8”));</p>
-<p>   for (String name : map.keySet()) {<br>    bw.write(name + “ “ + map.get(name));<br>    bw.newLine();<br>   }<br>   bw.close();<br>  } catch (Exception e) {<br>   System.err.println(“write errors :” + e);<br>  }<br> }<br>}</p>
+<p><img src="![mark](![mark](http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim" alt=""></p>
+<p><img src="![mark](![mark](http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim" alt=""></p>
 <p>测试数据：</p>
 <p>文苏洋,闫少翀,孟超<br>张育铭,王洪展<br>程浩男,路佳琦<br>罗天实,wsy,ysc,mc,zym<br>whz,ljq,lts<br>chn</p>
 <p>运行结果：</p>
@@ -547,7 +545,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共331字</span>
+  <span class="post-count">博客全站共166字</span>
 </div>
         
 
