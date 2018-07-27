@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="数据结构与算法," />
 
 
 
@@ -82,21 +82,18 @@
 
 
 
-<meta name="description" content="源码：">
-<meta name="keywords" content="java">
+<meta name="description" content="算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。">
+<meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java读取txt文件">
-<meta property="og:url" content="http://yoursite.com/2018/07/26/java读取txt文件/index.html">
+<meta property="og:title" content="算法基础">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/算法基础/index.html">
 <meta property="og:site_name" content="o文蚊蚊o">
-<meta property="og:description" content="源码：">
+<meta property="og:description" content="算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180726/IddGA7j5dc.png?imageslim">
-<meta property="og:updated_time" content="2018-07-26T03:58:38.070Z">
+<meta property="og:updated_time" content="2018-07-27T04:37:22.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java读取txt文件">
-<meta name="twitter:description" content="源码：">
-<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
+<meta name="twitter:title" content="算法基础">
+<meta name="twitter:description" content="算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。">
 
 
 
@@ -126,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/26/java读取txt文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/27/算法基础/"/>
 
 
 
 
 
-  <title>java读取txt文件 | o文蚊蚊o</title>
+  <title>算法基础 | o文蚊蚊o</title>
   
 
 
@@ -269,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/java读取txt文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/算法基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ben Wen">
@@ -286,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java读取txt文件</h1>
+          <h1 class="post-title" itemprop="name headline">算法基础</h1>
         
 
         <div class="post-meta">
@@ -298,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T00:00:51+08:00">
-                2018-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T11:26:09+08:00">
+                2018-07-27
               </time>
             
 
@@ -330,7 +327,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  344
+                  1,159
                 </span>
               
 
@@ -355,15 +352,61 @@
       
 
       
-        <p>源码：</p>
+        <p>算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。</p>
 <a id="more"></a>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim" alt="mark"></p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180726/IddGA7j5dc.png?imageslim" alt="mark"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TXTParseUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Integer ONE = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 读取数据 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">   BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"111.txt"</span>)),</span><br><span class="line"></span><br><span class="line">                   <span class="string">"UTF-8"</span>));</span><br><span class="line"></span><br><span class="line">   String lineTxt = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> ((lineTxt = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">    String[] names = lineTxt.split(<span class="string">","</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (String name : names) &#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> (map.keySet().contains(name)) &#123;</span><br><span class="line"></span><br><span class="line">      map.put(name, (map.get(name) + ONE));</span><br><span class="line"></span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">      map.put(name, ONE);</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   br.close();</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">   System.err.println(<span class="string">"read errors :"</span> + e);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 输出数据 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">   BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"final.txt"</span>)),</span><br><span class="line"></span><br><span class="line">                   <span class="string">"UTF-8"</span>));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> (String name : map.keySet()) &#123;</span><br><span class="line"></span><br><span class="line">    bw.write(name + <span class="string">" "</span> + map.get(name));</span><br><span class="line"></span><br><span class="line">    bw.newLine();</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   bw.close();</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">   System.err.println(<span class="string">"write errors :"</span> + e);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试数据：</p>
-<p>文苏洋,闫少翀,孟超<br>张育铭,王洪展<br>程浩男,路佳琦<br>罗天实,wsy,ysc,mc,zym<br>whz,ljq,lts<br>chn</p>
-<p>运行结果：</p>
-<p>闫少翀 1<br>罗天实 1<br>ysc 1<br>whz 1<br>chn 1<br>王洪展 1<br>lts 1<br>孟超 1<br>文苏洋 1<br>张育铭 1<br>程浩男 1<br>zym 1<br>ljq 1<br>mc 1<br>路佳琦 1<br>wsy 1</p>
+<p>算法的特性：</p>
+<ul>
+<li>输入输出：算法具有零个或多个输入，至少有一个或多个输出。</li>
+<li>有穷性：指算法在执行有限的步骤后，自动结束而不会出现无限循环，并且每个步骤在可接受的时间内完成。（譬如运行二十年结束的算法就不可行）</li>
+<li>确定性：算法的每一个步骤都具有确定的含义，不会出现二义性。（算法在一定条件下，只有一条执行路径，相同的输入只能有唯一输出的结果）</li>
+<li>可行性：算法每一步都必须是可行的，也就是说，每一步都能够通过执行有限次数完成。（算法可以转换为程序上机运行，并能得到正确结果）</li>
+</ul>
+<p>算法的设计要求：</p>
+<ul>
+<li><p>正确性：算法的正确性是指算法至少应该具有输入、输出和加工处理无歧义性、能正确反映问题的需求、能得到问题的正确答案。</p>
+<p>四个层次：</p>
+<p>1.算法程序没有语法错误。</p>
+<p>2.算法程序对于合法的输入数据能够产生满足要求的输出结果。</p>
+<p>3.算法程序对于非法的输入数据能够得到满足规格说明的结果。</p>
+<p>4.算法程序对于精心选择的，甚至刁难的测试数据都有满足要求的输出结果。</p>
+<p><strong>一般情况下把层次3作为一个算法是否成功的标准</strong></p>
+<p>​</p>
+</li>
+<li><p>可读性：算法设计的另一目的是为了便于阅读、理解和交流。</p>
+</li>
+<li><p>健壮性：当输入数据不合法时，算法也能做出相关处理，而不是产生异常或莫名其妙的结果</p>
+</li>
+<li><p>时间效率高和存储量低  （存储量需求指的是算法在执行过程中需要的最大存储空间，主要指算法程序所占用的内存或外部存储空间）</p>
+</li>
+</ul>
+<p>算法效率的度量方法：</p>
+<ul>
+<li>事后分析法(不科学，不准确)</li>
+<li>事前分析估算法</li>
+</ul>
+<p><strong>一个程序的运行时间，依赖于算法的好坏和问题的输入规模。所谓问题输入规模是指输入量的多少</strong></p>
+<p>算法的时间复杂度：大O记法</p>
+<p>推导大O阶：</p>
+<ul>
+<li>用常数1取代运行时间中的所有加法常数。</li>
+<li>在修改后的运行次数函数中，只保留最高阶项。</li>
+<li>如果最高阶存在且不是1，则去除与这个项相乘的常数。</li>
+</ul>
+<p>常数阶 O(1)：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;       <span class="comment">//执行一次</span></span><br><span class="line">sun = (<span class="number">1</span>+n)*n/<span class="number">2</span>;   <span class="comment">//执行一次</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,sum);  <span class="comment">//执行一次</span></span><br></pre></td></tr></table></figure>
+<p>线性阶 O(n)：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对数阶 O(logn)：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count;</span><br><span class="line"><span class="keyword">while</span> (count &lt; n)</span><br><span class="line">&#123;</span><br><span class="line">    count = count * <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>平方阶 O(n²)：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = i;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  总执行次数 = n+(n-1)+(n-2)+...+1</span></span><br><span class="line"><span class="comment">            = (n+1)*n/2</span></span><br><span class="line"><span class="comment">            = n²/2 + n/2</span></span><br><span class="line"><span class="comment">  时间复杂度仍为O(n²)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">(<span class="keyword">int</span> count)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    <span class="keyword">for</span> (j = count;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n++;                                 <span class="comment">//执行次数为1</span></span><br><span class="line">function(n);                         <span class="comment">//执行次数为n</span></span><br><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n;i++)                 <span class="comment">//执行次数为n²</span></span><br><span class="line">&#123;</span><br><span class="line">    functon(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)                <span class="comment">//执行次数为n*(n+1)/2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = i;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度仍为O(n²)</span></span><br></pre></td></tr></table></figure>
+<p><strong>常见时间复杂度所消耗时间从小到大依次为：</strong></p>
+<p><strong>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; O(n!) &lt; O(nⁿ)</strong></p>
+<p>最坏运行时间是一种最重要的需求，除非特殊指定，一般提到的运行时间都是指最坏情况下的运行时间。</p>
+<p>平均运行时间是所有情况中最有意义的，因为它是期望的运行时间。</p>
+<p>若算法执行时所需的辅助空间相对于数据量而言是一个常数，则称此算法为原地工作，空间复杂度为O(1).</p>
 
       
     </div>
@@ -387,7 +430,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
           
         </div>
       
@@ -400,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/07/27/数据结构基础/" rel="next" title="数据结构与算法基础">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法基础
               </a>
             
           </div>
@@ -409,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/27/数据结构基础/" rel="prev" title="数据结构与算法基础">
-                数据结构与算法基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
