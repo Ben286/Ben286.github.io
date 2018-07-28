@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180728/jae5AKa42l.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180728/AEaAD244dJ.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180728/13KI3c4B1D.jpg?imageslim">
-<meta property="og:updated_time" content="2018-07-28T13:53:03.577Z">
+<meta property="og:updated_time" content="2018-07-28T13:58:17.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性表">
 <meta name="twitter:description" content="线性表：零个或多个数据元素的有限序列。">
@@ -391,16 +391,13 @@
       
         <p>线性表：零个或多个数据元素的有限序列。</p>
 <a id="more"></a>
-<p>#线性表的定义</p>
-<p>若将线性表记为(A1,…,Ai,…,An),则表中Ai-1领先于Ai，Ai领先于Ai+1，称Ai-1是Ai的直接前驱元素，Ai+1是Ai的直接后继元素，当i = 1,2,…,n-1时，Ai有且仅有一个直接后继，当i = 2,3,…,n时，Ai有且仅有一个直接前驱。</p>
+<h1 id="线性表的定义"><a href="#线性表的定义" class="headerlink" title="线性表的定义"></a>线性表的定义</h1><p>若将线性表记为(A1,…,Ai,…,An),则表中Ai-1领先于Ai，Ai领先于Ai+1，称Ai-1是Ai的直接前驱元素，Ai+1是Ai的直接后继元素，当i = 1,2,…,n-1时，Ai有且仅有一个直接后继，当i = 2,3,…,n时，Ai有且仅有一个直接前驱。</p>
 <p>线性表元素个数n(n &gt;= 0)定义为线性表的长度，当n = 0时，称为空表。</p>
 <p>在较复杂的线性表中，一个数据元素可以由若干数据项组成。</p>
-<p>#线性表的抽象数据类型：</p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180728/jae5AKa42l.jpg?imageslim" alt="mark"><img src="http://p63sxxlje.bkt.clouddn.com/blog/180728/AEaAD244dJ.jpg?imageslim" alt="mark"></p>
+<h1 id="线性表的抽象数据类型："><a href="#线性表的抽象数据类型：" class="headerlink" title="线性表的抽象数据类型："></a>线性表的抽象数据类型：</h1><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180728/jae5AKa42l.jpg?imageslim" alt="mark"><img src="http://p63sxxlje.bkt.clouddn.com/blog/180728/AEaAD244dJ.jpg?imageslim" alt="mark"></p>
 <p>上述操作都是基本操作，实际问题中涉及线性表的更复杂的操作可以由这些基本操作的组合来完成。例如：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将所有在线性表Lb中但不在La中的数据元素插入到La中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(List *La,List Lb)</span></span></span><br><span class="line"><span class="function"><span class="comment">//List代指所有线性表，不是具体的一种结构</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> La_len,Lb_len;</span><br><span class="line">    ElemType *e;<span class="comment">//声明指向与La和Lb相同的数据元素e的指针</span></span><br><span class="line">    </span><br><span class="line">    La_len = ListLength(La)；</span><br><span class="line">    Lb_len = ListLength(Lb);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= Lb_len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        GetELem(Lb,i,*e);<span class="comment">//取Lb中第i个元素赋值给e</span></span><br><span class="line">        <span class="keyword">if</span> (!LocateElem(La,*e))<span class="comment">//La中不存在和e相同的数据元素</span></span><br><span class="line">            ListInsert(La,++La_len,*e);<span class="comment">//插入到La的末尾</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//在一些指针方面对书上代码做了些改动，若有大佬发现问题欢迎提出</span></span><br></pre></td></tr></table></figure>
-<p>#线性表的顺序结构</p>
-<p>线性表的顺序结构：用一段地址连续的存储单元依次存储线性表的数据元素。</p>
+<h1 id="线性表的顺序结构"><a href="#线性表的顺序结构" class="headerlink" title="线性表的顺序结构"></a>线性表的顺序结构</h1><p>线性表的顺序结构：用一段地址连续的存储单元依次存储线性表的数据元素。</p>
 <p>##结构代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 20</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    ElemType deta[MAXSIZE];<span class="comment">//数组存储数据元素，最大值为MAXSIZE</span></span><br><span class="line">    <span class="keyword">int</span> length;<span class="comment">//线性表当前长度</span></span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
 <p>描述顺序存储结构三个属性：</p>
@@ -433,8 +430,7 @@
 <li>当线性表长度变化较大时，难以确定存储空间的容量</li>
 <li>造成存储空间的”碎片”</li>
 </ul>
-<p>#线性表的链式存储结构</p>
-<p>存储数据元素信息的域称为数据域，存储直接后继元素位置的域称为指针域，指针域中存储的信息称作指针或链，这两部分组织数据元素Ai的存储映像，称作结点</p>
+<h1 id="线性表的链式存储结构"><a href="#线性表的链式存储结构" class="headerlink" title="线性表的链式存储结构"></a>线性表的链式存储结构</h1><p>存储数据元素信息的域称为数据域，存储直接后继元素位置的域称为指针域，指针域中存储的信息称作指针或链，这两部分组织数据元素Ai的存储映像，称作结点</p>
 <p>单链表：每个结点中只包含一个指针域</p>
 <p>头指针：链表第一个结点的存储位置(<strong>无论链表是否为空，头指针均不为空，是链表的必须元素。若链表有头结点，则是指向头结点的指针</strong>)</p>
 <p>头结点：单链表第一个结点之前的结点，其指针域存储指向第一个结点的指针(实现了在第一个元素结点前插入结点和删除第一个结点的操作与其他结点操作的统一，<strong>不是链表的必须元素</strong>)</p>
@@ -627,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构的优缺点"><span class="nav-number">1.</span> <span class="nav-text">顺序存储结构的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的删除："><span class="nav-number">2.</span> <span class="nav-text">单链表的删除：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-头插法"><span class="nav-number">3.</span> <span class="nav-text">单链表的整表创建(头插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-尾插法"><span class="nav-number">4.</span> <span class="nav-text">单链表的整表创建(尾插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表删除"><span class="nav-number">5.</span> <span class="nav-text">单链表的整表删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表结构与顺序存储结构的优缺点"><span class="nav-number">6.</span> <span class="nav-text">单链表结构与顺序存储结构的优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的定义"><span class="nav-number">1.</span> <span class="nav-text">线性表的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的抽象数据类型："><span class="nav-number">2.</span> <span class="nav-text">线性表的抽象数据类型：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的顺序结构"><span class="nav-number">3.</span> <span class="nav-text">线性表的顺序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构的优缺点"><span class="nav-number">3.1.</span> <span class="nav-text">顺序存储结构的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的链式存储结构"><span class="nav-number">4.</span> <span class="nav-text">线性表的链式存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的删除："><span class="nav-number">4.1.</span> <span class="nav-text">单链表的删除：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-头插法"><span class="nav-number">4.2.</span> <span class="nav-text">单链表的整表创建(头插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-尾插法"><span class="nav-number">4.3.</span> <span class="nav-text">单链表的整表创建(尾插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表删除"><span class="nav-number">4.4.</span> <span class="nav-text">单链表的整表删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表结构与顺序存储结构的优缺点"><span class="nav-number">4.5.</span> <span class="nav-text">单链表结构与顺序存储结构的优缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
