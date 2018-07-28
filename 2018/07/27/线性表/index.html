@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180728/jae5AKa42l.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180728/AEaAD244dJ.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180728/13KI3c4B1D.jpg?imageslim">
-<meta property="og:updated_time" content="2018-07-28T14:05:44.072Z">
+<meta property="og:updated_time" content="2018-07-28T14:36:10.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性表">
 <meta name="twitter:description" content="线性表：零个或多个数据元素的有限序列。">
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,387
+                  2,861
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  12
                 </span>
               
             </div>
@@ -444,6 +444,31 @@
 <li><strong>若线性表需要频繁查找，很少进行插入和删除操作时，宜采用顺序存储结构；若需要频繁插入与删除时，宜采用单链表结构。</strong></li>
 <li><strong>当线性表中元素个数变化较大或根本不知道有多大时，最好采用单链表结构，而若事先知道线性表大致长度，则顺序存储结构效率高很多。</strong></li>
 </ul>
+<h1 id="其他链表"><a href="#其他链表" class="headerlink" title="其他链表"></a>其他链表</h1><h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><p>用数组描述的链表(给没有指针的高级语言设计的一种实现单链表能力的方法)</p>
+<p>优点：</p>
+<ul>
+<li>在插入和删除操作时，只需修改游标，不需要移动元素，从而改进了在顺序存储结构中插入和删除操作需要移动大量元素的缺点</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>没有解决连续存储分配带来的表长难以确定的问题</li>
+<li>失去了顺序存储结构随机存取的特性</li>
+</ul>
+<p>(具体代码日后没事再更，详情可见大话数据结构P71页)</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p>将单链表中终端结点的指针端由空结点改为头结点，就使整个单链表形成一个环，这种头尾相接的单链表称为单循环链表，简称循环链表。</p>
+<p>循环链表解决了一个很麻烦的问题，即如何从当中一结点出发，访问到链表全部结点。</p>
+<p>单链表中头指针访问第一个结点需要O(1)时间，访问最后一个结点需要O(n)时间</p>
+<p>循环链表中若设置尾指针，则查找终端结点与开始结点的时间复杂度均为O(1)</p>
+<p>用尾指针非常容易合并两个循环链表</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p>在单链表的每个结点中，再设置一个指向其前驱结点的指针域</p>
+<p>结构代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">DulNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">DulNode</span> *<span class="title">prior</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">DulNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;DulNode, *DulLinkList;</span><br></pre></td></tr></table></figure>
+<p><strong>p-&gt;next-&gt;prior = p = p-&gt;prior-&gt;next</strong></p>
+<p>在p与p-&gt;next之间插入结点s：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s-&gt;next = p-&gt;next;</span><br><span class="line">s-&gt;prior = p;</span><br><span class="line">p-&gt;next-&gt;prior = s;</span><br><span class="line">p-&gt;next = s;</span><br></pre></td></tr></table></figure>
+<p><strong>先搞定s的前驱和后继，再搞定后结点的前驱，最后解决前结点的后继</strong></p>
+<p>删除结点p：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;prior-&gt;next = p-&gt;next;</span><br><span class="line">p-&gt;next-&gt;prior = p-&gt;prior;</span><br><span class="line"><span class="built_in">free</span>(p);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -616,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的定义"><span class="nav-number">1.</span> <span class="nav-text">线性表的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的抽象数据类型"><span class="nav-number">2.</span> <span class="nav-text">线性表的抽象数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的顺序结构"><span class="nav-number">3.</span> <span class="nav-text">线性表的顺序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码："><span class="nav-number">3.1.</span> <span class="nav-text">结构代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获得元素操作："><span class="nav-number">3.2.</span> <span class="nav-text">获得元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入元素操作："><span class="nav-number">3.3.</span> <span class="nav-text">插入元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除元素操作："><span class="nav-number">3.4.</span> <span class="nav-text">删除元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构的优缺点"><span class="nav-number">3.5.</span> <span class="nav-text">顺序存储结构的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的链式存储结构"><span class="nav-number">4.</span> <span class="nav-text">线性表的链式存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码：-1"><span class="nav-number">4.1.</span> <span class="nav-text">结构代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取元素操作："><span class="nav-number">4.2.</span> <span class="nav-text">获取元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的插入："><span class="nav-number">4.3.</span> <span class="nav-text">单链表的插入：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的删除："><span class="nav-number">4.4.</span> <span class="nav-text">单链表的删除：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-头插法"><span class="nav-number">4.5.</span> <span class="nav-text">单链表的整表创建(头插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-尾插法"><span class="nav-number">4.6.</span> <span class="nav-text">单链表的整表创建(尾插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表删除"><span class="nav-number">4.7.</span> <span class="nav-text">单链表的整表删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表结构与顺序存储结构的优缺点"><span class="nav-number">4.8.</span> <span class="nav-text">单链表结构与顺序存储结构的优缺点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的定义"><span class="nav-number">1.</span> <span class="nav-text">线性表的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的抽象数据类型"><span class="nav-number">2.</span> <span class="nav-text">线性表的抽象数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的顺序结构"><span class="nav-number">3.</span> <span class="nav-text">线性表的顺序结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码："><span class="nav-number">3.1.</span> <span class="nav-text">结构代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获得元素操作："><span class="nav-number">3.2.</span> <span class="nav-text">获得元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入元素操作："><span class="nav-number">3.3.</span> <span class="nav-text">插入元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除元素操作："><span class="nav-number">3.4.</span> <span class="nav-text">删除元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构的优缺点"><span class="nav-number">3.5.</span> <span class="nav-text">顺序存储结构的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表的链式存储结构"><span class="nav-number">4.</span> <span class="nav-text">线性表的链式存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码：-1"><span class="nav-number">4.1.</span> <span class="nav-text">结构代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取元素操作："><span class="nav-number">4.2.</span> <span class="nav-text">获取元素操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的插入："><span class="nav-number">4.3.</span> <span class="nav-text">单链表的插入：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的删除："><span class="nav-number">4.4.</span> <span class="nav-text">单链表的删除：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-头插法"><span class="nav-number">4.5.</span> <span class="nav-text">单链表的整表创建(头插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表创建-尾插法"><span class="nav-number">4.6.</span> <span class="nav-text">单链表的整表创建(尾插法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的整表删除"><span class="nav-number">4.7.</span> <span class="nav-text">单链表的整表删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表结构与顺序存储结构的优缺点"><span class="nav-number">4.8.</span> <span class="nav-text">单链表结构与顺序存储结构的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他链表"><span class="nav-number">5.</span> <span class="nav-text">其他链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表"><span class="nav-number">5.1.</span> <span class="nav-text">静态链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环链表"><span class="nav-number">5.2.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">5.3.</span> <span class="nav-text">双向链表</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -662,7 +687,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.6k字</span>
+  <span class="post-count">博客全站共5.1k字</span>
 </div>
 
 <div class="powered-by">
