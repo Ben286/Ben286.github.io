@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="o文蚊蚊o">
 <meta property="og:description" content="算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-27T08:25:09.806Z">
+<meta property="og:updated_time" content="2018-07-28T14:51:38.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法基础">
 <meta name="twitter:description" content="算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。">
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,159
+                  1,156
                 </span>
               
 
@@ -387,15 +387,13 @@
       
         <p>算法：是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表现一个或多个操作。</p>
 <a id="more"></a>
-<p>算法的特性：</p>
-<ul>
+<h1 id="算法的特性："><a href="#算法的特性：" class="headerlink" title="算法的特性："></a>算法的特性：</h1><ul>
 <li>输入输出：算法具有零个或多个输入，至少有一个或多个输出。</li>
 <li>有穷性：指算法在执行有限的步骤后，自动结束而不会出现无限循环，并且每个步骤在可接受的时间内完成。（譬如运行二十年结束的算法就不可行）</li>
 <li>确定性：算法的每一个步骤都具有确定的含义，不会出现二义性。（算法在一定条件下，只有一条执行路径，相同的输入只能有唯一输出的结果）</li>
 <li>可行性：算法每一步都必须是可行的，也就是说，每一步都能够通过执行有限次数完成。（算法可以转换为程序上机运行，并能得到正确结果）</li>
 </ul>
-<p>算法的设计要求：</p>
-<ul>
+<h1 id="算法的设计要求："><a href="#算法的设计要求：" class="headerlink" title="算法的设计要求："></a>算法的设计要求：</h1><ul>
 <li><p>正确性：算法的正确性是指算法至少应该具有输入、输出和加工处理无歧义性、能正确反映问题的需求、能得到问题的正确答案。</p>
 <p>四个层次：</p>
 <p>1.算法程序没有语法错误。</p>
@@ -412,32 +410,24 @@
 <li><p>时间效率高和存储量低  （存储量需求指的是算法在执行过程中需要的最大存储空间，主要指算法程序所占用的内存或外部存储空间）</p>
 </li>
 </ul>
-<p>算法效率的度量方法：</p>
-<ul>
+<h1 id="算法效率的度量方法："><a href="#算法效率的度量方法：" class="headerlink" title="算法效率的度量方法："></a>算法效率的度量方法：</h1><ul>
 <li>事后分析法(不科学，不准确)</li>
 <li>事前分析估算法</li>
 </ul>
 <p><strong>一个程序的运行时间，依赖于算法的好坏和问题的输入规模。所谓问题输入规模是指输入量的多少</strong></p>
-<p>算法的时间复杂度：大O记法</p>
-<p>推导大O阶：</p>
-<ul>
+<h1 id="算法的时间复杂度：大O记法"><a href="#算法的时间复杂度：大O记法" class="headerlink" title="算法的时间复杂度：大O记法"></a>算法的时间复杂度：大O记法</h1><h2 id="推导大O阶"><a href="#推导大O阶" class="headerlink" title="推导大O阶"></a>推导大O阶</h2><ul>
 <li>用常数1取代运行时间中的所有加法常数。</li>
 <li>在修改后的运行次数函数中，只保留最高阶项。</li>
 <li>如果最高阶存在且不是1，则去除与这个项相乘的常数。</li>
 </ul>
-<p>常数阶 O(1)：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;       <span class="comment">//执行一次</span></span><br><span class="line">sun = (<span class="number">1</span>+n)*n/<span class="number">2</span>;   <span class="comment">//执行一次</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,sum);  <span class="comment">//执行一次</span></span><br></pre></td></tr></table></figure>
-<p>线性阶 O(n)：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对数阶 O(logn)：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count;</span><br><span class="line"><span class="keyword">while</span> (count &lt; n)</span><br><span class="line">&#123;</span><br><span class="line">    count = count * <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>平方阶 O(n²)：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常数阶-O-1"><a href="#常数阶-O-1" class="headerlink" title="常数阶 O(1)"></a>常数阶 O(1)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;       <span class="comment">//执行一次</span></span><br><span class="line">sun = (<span class="number">1</span>+n)*n/<span class="number">2</span>;   <span class="comment">//执行一次</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,sum);  <span class="comment">//执行一次</span></span><br></pre></td></tr></table></figure>
+<h2 id="线性阶-O-n"><a href="#线性阶-O-n" class="headerlink" title="线性阶 O(n)"></a>线性阶 O(n)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对数阶-O-logn"><a href="#对数阶-O-logn" class="headerlink" title="对数阶 O(logn)"></a>对数阶 O(logn)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count;</span><br><span class="line"><span class="keyword">while</span> (count &lt; n)</span><br><span class="line">&#123;</span><br><span class="line">    count = count * <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="平方阶-O-n²"><a href="#平方阶-O-n²" class="headerlink" title="平方阶 O(n²)"></a>平方阶 O(n²)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = i;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  总执行次数 = n+(n-1)+(n-2)+...+1</span></span><br><span class="line"><span class="comment">            = (n+1)*n/2</span></span><br><span class="line"><span class="comment">            = n²/2 + n/2</span></span><br><span class="line"><span class="comment">  时间复杂度仍为O(n²)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">(<span class="keyword">int</span> count)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    <span class="keyword">for</span> (j = count;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n++;                                 <span class="comment">//执行次数为1</span></span><br><span class="line">function(n);                         <span class="comment">//执行次数为n</span></span><br><span class="line"><span class="keyword">int</span> i,j;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n;i++)                 <span class="comment">//执行次数为n²</span></span><br><span class="line">&#123;</span><br><span class="line">    functon(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; n;i++)                <span class="comment">//执行次数为n*(n+1)/2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = i;j &lt; n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//时间复杂度为O(1)的序列</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//时间复杂度仍为O(n²)</span></span><br></pre></td></tr></table></figure>
-<p><strong>常见时间复杂度所消耗时间从小到大依次为：</strong></p>
-<p><strong>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; O(n!) &lt; O(nⁿ)</strong></p>
-<p>最坏运行时间是一种最重要的需求，除非特殊指定，一般提到的运行时间都是指最坏情况下的运行时间。</p>
+<h2 id="常见时间复杂度所消耗时间排序"><a href="#常见时间复杂度所消耗时间排序" class="headerlink" title="常见时间复杂度所消耗时间排序"></a>常见时间复杂度所消耗时间排序</h2><p><strong>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; O(n!) &lt; O(nⁿ)</strong></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>最坏运行时间是一种最重要的需求，除非特殊指定，一般提到的运行时间都是指最坏情况下的运行时间。</p>
 <p>平均运行时间是所有情况中最有意义的，因为它是期望的运行时间。</p>
 <p>若算法执行时所需的辅助空间相对于数据量而言是一个常数，则称此算法为原地工作，空间复杂度为O(1).</p>
 
@@ -534,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -597,6 +596,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法的特性："><span class="nav-number">1.</span> <span class="nav-text">算法的特性：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法的设计要求："><span class="nav-number">2.</span> <span class="nav-text">算法的设计要求：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法效率的度量方法："><span class="nav-number">3.</span> <span class="nav-text">算法效率的度量方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法的时间复杂度：大O记法"><span class="nav-number">4.</span> <span class="nav-text">算法的时间复杂度：大O记法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#推导大O阶"><span class="nav-number">4.1.</span> <span class="nav-text">推导大O阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常数阶-O-1"><span class="nav-number">4.2.</span> <span class="nav-text">常数阶 O(1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性阶-O-n"><span class="nav-number">4.3.</span> <span class="nav-text">线性阶 O(n)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对数阶-O-logn"><span class="nav-number">4.4.</span> <span class="nav-text">对数阶 O(logn)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平方阶-O-n²"><span class="nav-number">4.5.</span> <span class="nav-text">平方阶 O(n²)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见时间复杂度所消耗时间排序"><span class="nav-number">4.6.</span> <span class="nav-text">常见时间复杂度所消耗时间排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.7.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
