@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="o文蚊蚊o" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="栈：限定仅在表尾进行插入和删除操作的线性表。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/栈/index.html">
+<meta property="og:site_name" content="o文蚊蚊o">
+<meta property="og:description" content="栈：限定仅在表尾进行插入和删除操作的线性表。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180729/kDKAIJF72k.jpg?imageslim">
+<meta property="og:updated_time" content="2018-07-29T03:37:01.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="栈">
+<meta name="twitter:description" content="栈：限定仅在表尾进行插入和删除操作的线性表。">
+<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180729/kDKAIJF72k.jpg?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/29/栈/"/>
+
+
+
+
+
+  <title>栈 | o文蚊蚊o</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">o文蚊蚊o</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/栈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ben Wen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="o文蚊蚊o">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">栈</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T10:08:12+08:00">
+                2018-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,052
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>栈：限定仅在表尾进行插入和删除操作的线性表。</p>
+<a id="more"></a>
+<p>允许插入和删除的一段称为栈顶，另一端称为栈底。</p>
+<p>不含任何数据元素的栈称为空栈。</p>
+<p>后入先出(Last In First Out)线性表，简称LIFO结构。</p>
+<p>栈的插入操作，叫做进栈，也称压栈、入栈。</p>
+<p>栈的删除操作，叫做出栈，也称弹栈。</p>
+<p>3个元素1，2，3依次进栈，有5种可能的出栈次序：</p>
+<ul>
+<li>1、2、3进，再3、2、1出，次序为321</li>
+<li>1进，1出，2进，2出，3进，3出，次序为123</li>
+<li>1进，2进，2出，1出，3进，3出，次序为213</li>
+<li>1进，1出，2进，3进，3出，2出，次序为132</li>
+<li>1进，2进，2出，3进，3出，1出，次序为231</li>
+</ul>
+<p><strong>肯定不会出现312的情况，因为若3先出栈，则3必曾进过栈，则1、2已经进栈了，则2在1之上，不可能1先出栈</strong></p>
+<h1 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h1><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180729/kDKAIJF72k.jpg?imageslim" alt="mark"></p>
+<h1 id="栈的顺序存储结构"><a href="#栈的顺序存储结构" class="headerlink" title="栈的顺序存储结构"></a>栈的顺序存储结构</h1><p>定义一个栈顶指针top来表示栈顶在数组中的位置</p>
+<h2 id="结构代码"><a href="#结构代码" class="headerlink" title="结构代码"></a>结构代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> SElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    SElemType data[MAXSIZE];</span><br><span class="line">    <span class="keyword">int</span> top;</span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
+<h2 id="进栈操作"><a href="#进栈操作" class="headerlink" title="进栈操作"></a>进栈操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入元素e为新的栈顶元素</span></span><br><span class="line"><span class="function">Status <span class="title">Push</span> <span class="params">(SqStack *S,SElemType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;top == MAXSIZE<span class="number">-1</span>)<span class="comment">//是否栈满</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    S-&gt;top++;</span><br><span class="line">    S-&gt;data[S-&gt;top] = e;<span class="comment">//将新插入的指针赋值给栈顶空间</span></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="出栈操作"><a href="#出栈操作" class="headerlink" title="出栈操作"></a>出栈操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//若栈非空，则删除栈顶元素，用e返回其值</span></span><br><span class="line"><span class="function">Status <span class="title">Pop</span> <span class="params">(SqStack *S,SElemType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;top == <span class="number">-1</span>)<span class="comment">//空栈top值为-1</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    *e = S-&gt;data[S-&gt;top];</span><br><span class="line">    S-&gt;top--;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度均为O(1)</strong></p>
+<h1 id="两栈共享空间"><a href="#两栈共享空间" class="headerlink" title="两栈共享空间"></a>两栈共享空间</h1><p>一个栈的栈底为数组下标为0处，另一个的栈底为数组下标为n-1处</p>
+<p>当两个指针间相差1时，即top1 + 1 = top2时为栈满(栈1满时，top1 = n-1,top2 = n;栈2满时，top1 = -1，top2 = 0)</p>
+<h2 id="结构代码-1"><a href="#结构代码-1" class="headerlink" title="结构代码"></a>结构代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    SElemType data[MAXSIZE];</span><br><span class="line">    <span class="keyword">int</span> top1;</span><br><span class="line">    <span class="keyword">int</span> top2;</span><br><span class="line">&#125;SqDoubleStack;</span><br></pre></td></tr></table></figure>
+<h2 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Push</span> <span class="params">(SqDoubleStack *S,SElemType e,<span class="keyword">int</span> stackNumber)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;top1+<span class="number">1</span> == S-&gt;top2)<span class="comment">//栈已满，不能再push新元素</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">if</span> (stackNumber == <span class="number">1</span>)<span class="comment">//栈1有元素进栈</span></span><br><span class="line">        S-&gt;data[++S-&gt;top1] = e;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (stackNumber == <span class="number">2</span>)<span class="comment">//栈2有元素进栈</span></span><br><span class="line">        S-&gt;data[--S-&gt;top2] = e;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Pop</span> <span class="params">(SqDoubleStack *S,SElemType *e,<span class="keyword">int</span> stackNumber)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (stackNumber == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (S-&gt;top1 == <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> ERROR;<span class="comment">//栈1为空栈</span></span><br><span class="line">        *e = S-&gt;data[S-&gt;top1--];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (stackNumber == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (S-&gt;top2 == n)</span><br><span class="line">            <span class="keyword">return</span> ERROR;<span class="comment">//栈2为空栈</span></span><br><span class="line">        *e = S-&gt;data[S-&gt;top2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>通常当两个栈具有相同数据类型且空间需求有相反关系时使用这样的数据结构</strong></p>
+<h1 id="栈的链式存储结构"><a href="#栈的链式存储结构" class="headerlink" title="栈的链式存储结构"></a>栈的链式存储结构</h1><p>通常将栈顶放在单链表的头部，头指针充当栈顶指针，不需要头结点。</p>
+<h2 id="结构代码-2"><a href="#结构代码-2" class="headerlink" title="结构代码"></a>结构代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StackNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    SElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">StackNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;StackNode,*LinkStackPtr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkStack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    LinkStackPtr top;</span><br><span class="line">    <span class="keyword">int</span> count;<span class="comment">//结点总数</span></span><br><span class="line">&#125;LinkStack;</span><br></pre></td></tr></table></figure>
+<h2 id="进栈操作-1"><a href="#进栈操作-1" class="headerlink" title="进栈操作"></a>进栈操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Push</span> <span class="params">(Linkstack *S,SElemType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LinkStackPtr s=(LinkStackPtr)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(StackNode));</span><br><span class="line">    </span><br><span class="line">    s-&gt;data = e;</span><br><span class="line">    s-&gt;next = S-&gt;top;</span><br><span class="line">    S-&gt;top = s;</span><br><span class="line">    S-&gt;count++;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="出栈操作-1"><a href="#出栈操作-1" class="headerlink" title="出栈操作"></a>出栈操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Pop</span> <span class="params">(LinkStack *S;SElemType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LinkStackPtr p;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (StackEmpty(*S))</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    *e = S-&gt;top-&gt;data;</span><br><span class="line">    p=S-&gt;top;<span class="comment">//将栈顶结点赋值给p</span></span><br><span class="line">    S-&gt;top = S-&gt;top-&gt;next;<span class="comment">//栈顶指针下移一位</span></span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    S-&gt;count--;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果栈的使用过程中元素变化不可预料，那么最好用链栈，反之若变化在可控范围内，则最好用顺序栈</strong></p>
+<p>栈的引入简化了程序设计问题，划分了不同层次，使思考范围缩小，更加聚焦于我们要解决的问题的核心。</p>
+<p>栈的应用–递归：在前行阶段，对于每一层递归，函数的局部变量、参数值以及返回地址都被压入栈中；在退回阶段，位于栈顶的局部变量、参数、和返回地址被弹出，用于返回调用层次中执行代码的剩余部分，也就是恢复了调用状态。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+    </div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/27/线性表/" rel="next" title="线性表">
+                <i class="fa fa-chevron-left"></i> 线性表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar_1.jpg"
+                alt="Ben Wen" />
+            
+              <p class="site-author-name" itemprop="name">Ben Wen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#栈的抽象数据类型"><span class="nav-number">1.</span> <span class="nav-text">栈的抽象数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈的顺序存储结构"><span class="nav-number">2.</span> <span class="nav-text">栈的顺序存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码"><span class="nav-number">2.1.</span> <span class="nav-text">结构代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进栈操作"><span class="nav-number">2.2.</span> <span class="nav-text">进栈操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#出栈操作"><span class="nav-number">2.3.</span> <span class="nav-text">出栈操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两栈共享空间"><span class="nav-number">3.</span> <span class="nav-text">两栈共享空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码-1"><span class="nav-number">3.1.</span> <span class="nav-text">结构代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入操作"><span class="nav-number">3.2.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除操作"><span class="nav-number">3.3.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈的链式存储结构"><span class="nav-number">4.</span> <span class="nav-text">栈的链式存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构代码-2"><span class="nav-number">4.1.</span> <span class="nav-text">结构代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进栈操作-1"><span class="nav-number">4.2.</span> <span class="nav-text">进栈操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#出栈操作-1"><span class="nav-number">4.3.</span> <span class="nav-text">出栈操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ben Wen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共6.1k字</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  undefined
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
