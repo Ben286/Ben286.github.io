@@ -90,7 +90,9 @@
 <meta property="og:description" content="最小生成树：构成连通网的最小代价生成树。即用n-1条边将一个n个顶点的连通图连接起来，并使得权值的和最小。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180807/AbhIGKI456.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-07T15:46:55.968Z">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180808/aAfD4gEK50.jpg?imageslim">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180808/ml1lcjEaD1.jpg?imageslim">
+<meta property="og:updated_time" content="2018-08-08T02:37:51.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的最小生成树算法">
 <meta name="twitter:description" content="最小生成树：构成连通网的最小代价生成树。即用n-1条边将一个n个顶点的连通图连接起来，并使得权值的和最小。">
@@ -350,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,338
+                  1,345
                 </span>
               
 
@@ -399,10 +401,11 @@
 <h1 id="克鲁斯卡尔-Kruskal-算法"><a href="#克鲁斯卡尔-Kruskal-算法" class="headerlink" title="克鲁斯卡尔(Kruskal)算法"></a>克鲁斯卡尔(Kruskal)算法</h1><p>定义：假设N = {P,{E}}是连通网，则令最小生成树的初始状态为只有n个顶点而无边的非连通图T={V,{}},图中每个顶点自成一个连通分量。在E中选择代价最小的边，若该边依附的顶点落在T中不同连通分量上，则将此边加入到T中，否则舍去此边而选择下一条代价最小的边。依次类推，直到所有顶点都在同一连通分量上为止。</p>
 <p>这里采用边集数组：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> begin;</span><br><span class="line">    <span class="keyword">int</span> end;</span><br><span class="line">    <span class="keyword">int</span> weight;</span><br><span class="line">&#125;Edge;</span><br></pre></td></tr></table></figure>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180808/aAfD4gEK50.jpg?imageslim" alt="mark"></p>
 <p>代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MiniSpanTree_Kruskal</span> <span class="params">(MGraph G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    Edge edges[MAXVEX];<span class="comment">//定义边集数组</span></span><br><span class="line">    <span class="keyword">int</span> parent[MAXVEX];<span class="comment">//定义一数组来判断边与边是否形成环路</span></span><br><span class="line">    <span class="comment">//此处省略将邻接矩阵转化为边集数组且按权由小到大排序的代码</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; G.numVertexes;i++)</span><br><span class="line">        parent[i] = <span class="number">0</span>;<span class="comment">//初始化数组为0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; G.numEdges;i++)<span class="comment">//循环每一条边</span></span><br><span class="line">    &#123;</span><br><span class="line">        n = Find(parent,edges[i],begin);</span><br><span class="line">        m = Find(parent,edges[i],end);</span><br><span class="line">        <span class="keyword">if</span> (n != m)<span class="comment">//若n!=m说明此边没有与现有生成树形成环路</span></span><br><span class="line">        &#123;</span><br><span class="line">            parent[n] = m;</span><br><span class="line">            <span class="comment">//将此边的结尾顶点放入下标为起点的parent中，表示该顶点已经在生成树集合中</span></span><br><span class="line">            <span class="comment">//例如parent[5]=8表示v5和v8都在生成树集合中且在同一个连通分量中</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"(%d,%d) %d"</span>,edges[i].begin,edges[i].end,edges[i].weight);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span> <span class="params">(<span class="keyword">int</span> *parent,<span class="keyword">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (parent[f] &gt; <span class="number">0</span>)<span class="comment">//将"两个数组在一个连通分量中"这一结论用数组中的空闲位置来表达</span></span><br><span class="line">        f = parent[f];</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>理解：例如当i = 6时parent数组为:{1,5,8,7,7,8,0,0,6},从parent[0] = 1开始可构建两条指针链：</strong></p>
-<p><strong>可以认为每个连通分量只提供一个指向0的API接口，若某条边能够形成环路，则其begin和end端经过Find函数后得到的n和m必定相等，此即为判断一条边是否满足要求的判断依据。</strong></p>
+<p><strong>理解：例如当i = 6时parent数组为:{1,5,8,7,7,8,0,0,6},从parent[0] = 1开始可构建两条指针链：</strong><img src="http://p63sxxlje.bkt.clouddn.com/blog/180808/ml1lcjEaD1.jpg?imageslim" alt="mark"></p>
+<p><strong>可以认为每个连通分量只提供一个指向parent数组中值为0的项的API接口，若某条边能够形成环路，则其begin和end端经过Find函数后得到的n和m必定相等，此即为判断一条边是否满足要求的判断依据。</strong></p>
 <p><strong>此算法的Find函数由边数e决定，时间复杂度为O(loge),而外面有一个for循环e次，故Kruskal算法的时间复杂度为O(eloge)。</strong>(先记下，以后再想原因)</p>
 <p><strong>Kruskal算法主要针对边来展开，边数少时效率非常高，对于稀疏图有很大优势；Prim算法对于稠密图，即边数非常多的情况会更有优势。</strong></p>
 
