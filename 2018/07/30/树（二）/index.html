@@ -82,22 +82,24 @@
 
 
 
-<meta name="description" content="二叉树的存储结构">
+<meta name="description" content="二叉树的定义：二叉树是n(n &amp;gt;= 0)个结点的有限集合，该集合或者为空集(空二叉树)，或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树（二）">
+<meta property="og:title" content="树（二）--二叉树">
 <meta property="og:url" content="http://yoursite.com/2018/07/30/树（二）/index.html">
 <meta property="og:site_name" content="o文蚊蚊o">
-<meta property="og:description" content="二叉树的存储结构">
+<meta property="og:description" content="二叉树的定义：二叉树是n(n &amp;gt;= 0)个结点的有限集合，该集合或者为空集(空二叉树)，或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/GHgbg9D5C6.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180731/cB6A0c6HLm.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180731/Am62cGFili.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180731/4j6cb0JlBF.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180731/49L4c13KFk.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-09T08:04:07.518Z">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180731/GmA3Ccmb8i.jpg?imageslim">
+<meta property="og:updated_time" content="2018-08-09T08:20:22.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树（二）">
-<meta name="twitter:description" content="二叉树的存储结构">
-<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180731/cB6A0c6HLm.jpg?imageslim">
+<meta name="twitter:title" content="树（二）--二叉树">
+<meta name="twitter:description" content="二叉树的定义：二叉树是n(n &amp;gt;= 0)个结点的有限集合，该集合或者为空集(空二叉树)，或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。">
+<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/GHgbg9D5C6.jpg?imageslim">
 
 
 
@@ -133,7 +135,7 @@
 
 
 
-  <title>树（二） | o文蚊蚊o</title>
+  <title>树（二）--二叉树 | o文蚊蚊o</title>
   
 
 
@@ -287,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">树（二）</h1>
+          <h1 class="post-title" itemprop="name headline">树（二）--二叉树</h1>
         
 
         <div class="post-meta">
@@ -353,7 +355,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,108
+                  2,199
                 </span>
               
 
@@ -369,7 +371,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  8
                 </span>
               
             </div>
@@ -390,8 +392,65 @@
       
 
       
-        <h1 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h1><a id="more"></a>
-<h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>对于一般二叉树，尽管层次编号不能反映逻辑关系，但可以将其按完全二叉树编号，把不存在的结点设置为”^”，依次存入数组中。</p>
+        <p>二叉树的定义：二叉树是n(n &gt;= 0)个结点的有限集合，该集合或者为空集(空二叉树)，或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。</p>
+<a id="more"></a>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>特点：</p>
+<ul>
+<li>每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点。</li>
+<li>左右子树是有顺序的，次序不能任意颠倒。</li>
+<li>即使树中某结点只有一棵子树，也要区分它是左子树还是右子树。</li>
+</ul>
+<p><em>三个结点的树有两种形态，三个结点的二叉树有五种形态</em></p>
+<p>五种基本形态：</p>
+<ul>
+<li>空二叉树</li>
+<li>只有一个根结点</li>
+<li>根结点只有左子树</li>
+<li>根结点只有右子树</li>
+<li>根结点既有左子树又有右子树</li>
+</ul>
+<h2 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树"></a>特殊二叉树</h2><h3 id="斜树"><a href="#斜树" class="headerlink" title="斜树"></a>斜树</h3><p>所有结点都只有左子树的树叫做左斜树，所有结点都只有右子树的树叫做右斜树，两者统称斜树。</p>
+<p>每一层只有一个结点，结点的个数与二叉树深度相同。</p>
+<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>所有分支结点都存在左右子树，且所有叶子结点都在同一层上的二叉树。</p>
+<p>特点：</p>
+<ul>
+<li>叶子只能出现在最下层</li>
+<li>非叶子结点的度一定为2</li>
+<li>在同样深度的二叉树中，满二叉树的结点个数最多，叶子数最多</li>
+</ul>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>对一棵具有n个结点的二叉树按层序编号，如果编号为i(1 &lt;= i &lt;= n)的结点与同样深度的满二叉树中编号为i的结点在二叉树中的位置完全相同，则这棵二叉树称为完全二叉树。</p>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180730/GHgbg9D5C6.jpg?imageslim" alt="mark"></p>
+<p><strong>满二叉树一定是完全二叉树，完全二叉树不一定是满二叉树。</strong></p>
+<p>特点：</p>
+<ul>
+<li>叶子结点只能出现在最下两层</li>
+<li>最下层的叶子一定集中在左部连续位置</li>
+<li>倒数第二层若有叶子结点，则一定都在右部连续位置</li>
+<li>如果结点度为1，则该结点只有左孩子，即不存在只有右子树的情况</li>
+<li>同样结点数的二叉树，完全二叉树深度最小</li>
+</ul>
+<h2 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h2><ul>
+<li><p>在二叉树的第i层上至多有2^(i-1)个结点(i &gt;= 1)</p>
+</li>
+<li><p>深度为k的二叉树至多有2^k - 1 个结点(k &gt;= 1)</p>
+</li>
+<li><p>对任意一棵二叉树T，如果其终端结点数为n0，度为2的结点数为n2，则n0 = n2 + 1</p>
+<p>原因：分支总数 = 结点总数 - 1</p>
+<p>​             n1 + 2*n2 = n0 + n1 + n2 -1</p>
+<p>​       故n0 = n2 + 1</p>
+</li>
+<li><p>具有n个结点的完全二叉树的深度为[log₂n]+1([x]表示不大于x的最大整数)</p>
+</li>
+<li><p>如果对一棵有n个结点的完全二叉树(其深度为[log₂n]+1)的结点按层序编号，对任一结点i (i &lt;= i &lt;= n)有：</p>
+<ul>
+<li>如果i = 1，则结点i是二叉树的根，无双亲；如果i &gt; 1，则其双亲是结点[i/2]</li>
+<li>如果2i &gt; n，则i无左孩子(结点i为叶子结点)；否则其左孩子是结点2i</li>
+<li>如果2i+1 &gt; n，则i无右孩子；否则其左孩子是结点2i+1</li>
+</ul>
+</li>
+</ul>
+<p><strong>若一个偶数结点下一位奇数结点存在，则该奇数结点为该偶数结点的右兄弟</strong></p>
+<h1 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>对于一般二叉树，尽管层次编号不能反映逻辑关系，但可以将其按完全二叉树编号，把不存在的结点设置为”^”，依次存入数组中。</p>
 <p>极端情况下，右斜树将造成存储空间极大浪费。(k个结点要分配2^k - 1个存储单元空间)</p>
 <p><strong>顺序存储结构一般只用于完全二叉树</strong></p>
 <h2 id="二叉链表"><a href="#二叉链表" class="headerlink" title="二叉链表"></a>二叉链表</h2><p>二叉树每个结点设计为一个数据域和两个指针域。</p>
@@ -434,6 +493,12 @@
 <p><strong>已知前序遍历序列和中序遍历序列，可以唯一确定一棵二叉树</strong>。</p>
 <p><strong>已知后序遍历序列和中序遍历序列，可以唯一确定一棵二叉树。</strong></p>
 <p><strong>已知前序遍历序列和后序遍历序列，不能确定一棵二叉树。</strong></p>
+<h1 id="二叉树的建立"><a href="#二叉树的建立" class="headerlink" title="二叉树的建立"></a>二叉树的建立</h1><p><strong>扩展二叉树</strong>：将二叉树每个结点的空指针引出一个虚结点，其值为一个特定值(如#)，这种处理后的二叉树为原二叉树的扩展二叉树。</p>
+<p>扩展二叉树可以做到一个遍历序列确定一棵二叉树。(确定某一个结点有几个孩子，是否为叶子结点等)</p>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180731/GmA3Ccmb8i.jpg?imageslim" alt="mark"></p>
+<p>假设用前序遍历生成一个结点均为字符的二叉树：</p>
+<p>用键盘输入：AB#D##C##</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按前序输入二叉树中结点的值(一个字符)</span></span><br><span class="line"><span class="comment">//#表示空树，构造二叉链表表示二叉树T</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateBiTree</span> <span class="params">(BiTree *T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TElemType ch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;ch);</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'#'</span>)</span><br><span class="line">        *T = <span class="literal">NULL</span>;<span class="comment">//空结点</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *T = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">        <span class="keyword">if</span> (!*T)</span><br><span class="line">            <span class="built_in">exit</span>(OVERFLOW);<span class="comment">//内存已炸</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            *T-&gt;data = ch;<span class="comment">//生成根结点</span></span><br><span class="line">            CreateBiTree (&amp;(*T)-&gt;rchild);<span class="comment">//构造左子树</span></span><br><span class="line">            CreateBiTree (&amp;(*T)-&gt;lchild);<span class="comment">//构造右子树</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -610,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的存储结构"><span class="nav-number">1.</span> <span class="nav-text">二叉树的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">1.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉链表"><span class="nav-number">1.2.</span> <span class="nav-text">二叉链表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求二叉树高度"><span class="nav-number">2.</span> <span class="nav-text">求二叉树高度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遍历二叉树"><span class="nav-number">3.</span> <span class="nav-text">遍历二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前序遍历-先访问根结点"><span class="nav-number">3.1.</span> <span class="nav-text">前序遍历(先访问根结点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中序遍历-中间访问根结点"><span class="nav-number">3.2.</span> <span class="nav-text">中序遍历(中间访问根结点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后序遍历-最后访问根结点"><span class="nav-number">3.3.</span> <span class="nav-text">后序遍历(最后访问根结点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层序遍历"><span class="nav-number">3.4.</span> <span class="nav-text">层序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二元运算表达树及其遍历"><span class="nav-number">3.5.</span> <span class="nav-text">二元运算表达树及其遍历</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊二叉树"><span class="nav-number">1.1.</span> <span class="nav-text">特殊二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#斜树"><span class="nav-number">1.1.1.</span> <span class="nav-text">斜树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#满二叉树"><span class="nav-number">1.1.2.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">1.1.3.</span> <span class="nav-text">完全二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的性质"><span class="nav-number">1.2.</span> <span class="nav-text">二叉树的性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的存储结构"><span class="nav-number">2.</span> <span class="nav-text">二叉树的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">2.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉链表"><span class="nav-number">2.2.</span> <span class="nav-text">二叉链表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求二叉树高度"><span class="nav-number">3.</span> <span class="nav-text">求二叉树高度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遍历二叉树"><span class="nav-number">4.</span> <span class="nav-text">遍历二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前序遍历-先访问根结点"><span class="nav-number">4.1.</span> <span class="nav-text">前序遍历(先访问根结点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中序遍历-中间访问根结点"><span class="nav-number">4.2.</span> <span class="nav-text">中序遍历(中间访问根结点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后序遍历-最后访问根结点"><span class="nav-number">4.3.</span> <span class="nav-text">后序遍历(最后访问根结点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层序遍历"><span class="nav-number">4.4.</span> <span class="nav-text">层序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二元运算表达树及其遍历"><span class="nav-number">4.5.</span> <span class="nav-text">二元运算表达树及其遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的建立"><span class="nav-number">5.</span> <span class="nav-text">二叉树的建立</span></a></li></ol></div>
             
 
           </div>
