@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180808/0aI0L045GE.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180809/Gcb8EKB4Hj.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180809/F4afC9L2FC.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-09T04:11:32.355Z">
+<meta property="og:updated_time" content="2018-08-09T04:12:42.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的最短路径算法">
 <meta name="twitter:description" content="对于网图来说，最短路径是指两顶点间经过的边上权值之和最少的路径，并且我们称路径上的第一个顶点是源点，最后一个顶点是终点。">
@@ -409,7 +409,7 @@
 <p>最终结果为：</p>
 <p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180809/F4afC9L2FC.jpg?imageslim" alt="mark"></p>
 <p>不难发现，v0所在的列与Dijkstra算法结果完全一致。</p>
-<p>如求v4到v7的最短路径，P[4]/[7]=3，P[3]/[7]=6，P[6]/[7]=7，故路径为v4→v3→v6→v7。(markdown中两个方括号表示链接，为了区分我在中间加了/表示二维数组。)</p>
+<p>如求v4到v7的最短路径，P[4]/[7]=3，P[3]/[7]=6，P[6]/[7]=7，故路径为v4→v3→v6→v7。(<em>markdown中两个方括号表示链接，为了区分我在中间加了/表示二维数组。</em>)</p>
 <p>求最短路径的显示代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; G.numVertexes;v++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> w = v+<span class="number">1</span>;w &lt; G.numVertexes;w++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"v%d-v%d weight: %d "</span>,v,w,(*D)[v][w]);</span><br><span class="line">        k = P[v][w];<span class="comment">//获得第一个路径顶点下标</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"path: %d"</span>,v);<span class="comment">//打印源点</span></span><br><span class="line">        <span class="keyword">while</span> (k != w)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" -&gt; %d"</span>,k);<span class="comment">//打印路径顶点</span></span><br><span class="line">            k = P[k][w];<span class="comment">//获得下一个路径顶点下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" -&gt; %d\n"</span>,w);<span class="comment">//打印终点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>时间复杂度为O(n³)，面临需要求所有顶点到所有顶点的最短路径时比较方便。</strong></p>
