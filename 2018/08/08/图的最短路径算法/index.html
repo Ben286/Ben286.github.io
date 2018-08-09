@@ -90,7 +90,9 @@
 <meta property="og:description" content="对于网图来说，最短路径是指两顶点间经过的边上权值之和最少的路径，并且我们称路径上的第一个顶点是源点，最后一个顶点是终点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180808/0aI0L045GE.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-08T16:38:26.571Z">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180809/Gcb8EKB4Hj.jpg?imageslim">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180809/F4afC9L2FC.jpg?imageslim">
+<meta property="og:updated_time" content="2018-08-09T04:00:32.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的最短路径算法">
 <meta name="twitter:description" content="对于网图来说，最短路径是指两顶点间经过的边上权值之和最少的路径，并且我们称路径上的第一个顶点是源点，最后一个顶点是终点。">
@@ -350,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  804
+                  1,292
                 </span>
               
 
@@ -366,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -399,7 +401,18 @@
 <p><strong>P数组最终为:{0,0,1,4,2,4,3,6,7}，它表示最短路径所经过的顶点，P[8]=7的意思是v8的前驱顶点是v7，如v0到v8经过的路径为v8←v7←v6←v3←v4←v2←v1←v0。</strong></p>
 <p><strong>可以得到v0到任意一个顶点的最短路径和路径长度，如v0到v8的最短路径中，没有v5，但D[5]=8表示v0到v5的最短路径长度为8，由P数组可得v0到v5经过的最短路径为v5←v4←v2←v1←v0。</strong></p>
 <p><strong>时间复杂度为O(n²)，若求所有顶点到所有顶点的最短路径则执行n次，时间复杂度为O(n³)。</strong></p>
-<h1 id="弗洛伊德-Floyd-算法"><a href="#弗洛伊德-Floyd-算法" class="headerlink" title="弗洛伊德(Floyd)算法"></a>弗洛伊德(Floyd)算法</h1>
+<h1 id="弗洛伊德-Floyd-算法"><a href="#弗洛伊德-Floyd-算法" class="headerlink" title="弗洛伊德(Floyd)算法"></a>弗洛伊德(Floyd)算法</h1><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180809/Gcb8EKB4Hj.jpg?imageslim" alt="mark"></p>
+<p>原理：<br>$$<br>D^0[v][w] = min (D^{-1} [v][w] , D^{-1}[v][0] + D^{-1}[0][w])<br>$$<br><strong>即：任意寻找一个顶点，判断以该顶点为桥任意两个顶点之间的距离是否会缩短。</strong></p>
+<p>代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Pathmatirx[MAXVEX][MAXVEX];</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ShortPathTable[MAXVEX][MAXVEX];</span><br><span class="line"><span class="comment">//因为求的是所有顶点到所有顶点的最短路径，所以是二维数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShortestPath_Floyd</span> <span class="params">(MGraph G,Pathmatirx *P,ShortPathTable *D)</span></span></span><br><span class="line"><span class="function"><span class="comment">//P[v][w]存储最短路径，D[v][w]存储带权长度</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; G.numVertexes;v++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> w = <span class="number">0</span>;w &lt; G.numVertexes;w++)</span><br><span class="line">        &#123;</span><br><span class="line">            (*D)[v][w] = G.arc[v][w];</span><br><span class="line">            (*P)[v][w] = w;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="comment">//初始化操作</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>;k &lt; G.numVertexes;k++)<span class="comment">//k表示中转顶点</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; G.numVertexes;v++)<span class="comment">//v表示起始顶点</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> w = <span class="number">0</span>;w &lt; G.numVertexes;w++)<span class="comment">//w表示结束顶点</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> ((*D)[v][w] &gt; (*D)[v][k] + (*D)[k][w])</span><br><span class="line">                &#123;</span><br><span class="line">                    (*D)[v][w] = (*D)[v][k] + (*D)[k][w];</span><br><span class="line">                    (*P)[v][w] = (*P)[v][k];<span class="comment">//路径设置为经过下标为k的顶点</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终结果为：</p>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180809/F4afC9L2FC.jpg?imageslim" alt="mark"></p>
+<p>不难发现，v0所在的列与Dijkstra算法结果完全一致。</p>
+<p>如求v4到v7的最短路径，P[4]/[7]=3，P[3]/[7]=6,P[6]/[7]=7,故路径为v4→v3→v6→v7。(markdown中两个方括号表示链接，为了区分我在中间加了/表示二维数组。)</p>
+<p>求最短路径的显示代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; G.numVertexes;v++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> w = v+<span class="number">1</span>;w &lt; G.numVertexes;w++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"v%d-v%d weight: %d "</span>,v,w,(*D)[v][w]);</span><br><span class="line">        k = P[v][w];<span class="comment">//获得第一个路径顶点下标</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"path: %d"</span>,v);<span class="comment">//打印源点</span></span><br><span class="line">        <span class="keyword">while</span> (k != w)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" -&gt; %d"</span>,k);<span class="comment">//打印路径顶点</span></span><br><span class="line">            k = P[k][w];<span class="comment">//获得下一个路径顶点下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" -&gt; %d\n"</span>,w);<span class="comment">//打印终点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度为O(n³)，面临需要求所有顶点到所有顶点的最短路径时比较方便。</strong></p>
+
       
     </div>
     
@@ -617,7 +630,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共16.8k字</span>
+  <span class="post-count">博客全站共17.3k字</span>
 </div>
 
 <div class="powered-by">
