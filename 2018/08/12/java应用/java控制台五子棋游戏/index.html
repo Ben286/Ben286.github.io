@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="o文蚊蚊o" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="纪念我的第一个项目。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java控制台五子棋游戏">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/java应用/java控制台五子棋游戏/index.html">
+<meta property="og:site_name" content="o文蚊蚊o">
+<meta property="og:description" content="纪念我的第一个项目。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-12T05:21:11.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java控制台五子棋游戏">
+<meta name="twitter:description" content="纪念我的第一个项目。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/12/java应用/java控制台五子棋游戏/"/>
+
+
+
+
+
+  <title>java控制台五子棋游戏 | o文蚊蚊o</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">o文蚊蚊o</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/java应用/java控制台五子棋游戏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ben Wen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="o文蚊蚊o">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java控制台五子棋游戏</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T13:01:02+08:00">
+                2018-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java应用/" itemprop="url" rel="index">
+                    <span itemprop="name">java应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,711
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>纪念我的第一个项目。</p>
+<a id="more"></a>
+<p>注意：</p>
+<ul>
+<li>本项目在IDEA下调试完毕，已解决目前已知所有bug，sublime上似乎跑不了，eclipse没有试过。</li>
+<li>棋盘方格为搜狗输入法下的制表符，为了保证棋盘的美观，需设定IDEA控制台行间距为0.7。</li>
+<li>本项目电脑玩家落子设定为在用户最后一次落子周围八格内随机落子，若有大佬能提供合适的人工智能算法请联系QQ：549007298，感激不尽。</li>
+<li>本项目判断是否获胜设定为依次检查最后一次落子所在的每行每列及每条对角线的同色连续棋子数，若有大佬能提供更优化的算法同上。</li>
+<li>本项目前期曾参考[java控制台五子棋游戏][<a href="https://blog.csdn.net/zhaohuiyang_949/article/details/80107931]，若有疑问，欢迎咨询，联系方式同上。" target="_blank" rel="noopener">https://blog.csdn.net/zhaohuiyang_949/article/details/80107931]，若有疑问，欢迎咨询，联系方式同上。</a></li>
+</ul>
+<p>源码如下：</p>
+<h2 id="棋盘类"><a href="#棋盘类" class="headerlink" title="棋盘类"></a>棋盘类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Gobang;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Created by Ben Wen on 2018/8/9.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> Gobang.Gobang.computer;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> Gobang.Gobang.man;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> Gobang.Gobang.order;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chessboard</span> </span>&#123;<span class="comment">//棋盘类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> BOARD_SIZE = <span class="number">15</span>;<span class="comment">//棋盘大小</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String BLACK = <span class="string">"○"</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String WHITE = <span class="string">"●"</span>;</span><br><span class="line">    <span class="keyword">public</span> String[][] board;<span class="comment">//表示棋盘的数组</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> numChess = <span class="number">0</span>;<span class="comment">//棋子总数</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initBoard</span> <span class="params">()</span></span>&#123;<span class="comment">//初始化棋盘</span></span><br><span class="line">        board = <span class="keyword">new</span> String[BOARD_SIZE][BOARD_SIZE];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; BOARD_SIZE;i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; BOARD_SIZE;j++) &#123;</span><br><span class="line">                board[i][j] = <span class="string">"╋"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printBoard</span> <span class="params">()</span></span>&#123;<span class="comment">//打印棋盘（用了些骚操作，为了保证棋盘的美观需设定IDEA控制台行间距为0.7）</span></span><br><span class="line">        System.out.println(<span class="string">" 01  02  03  04  05  06  07  08  09  10  11  12  13  14  15  X轴"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; BOARD_SIZE;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; <span class="number">9</span>)&#123;</span><br><span class="line">                System.out.print(<span class="string">"0"</span>+ (i+<span class="number">1</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.print(i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; BOARD_SIZE;j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j != BOARD_SIZE-<span class="number">1</span>)</span><br><span class="line">                    System.out.print(board[j][i] + <span class="string">"━"</span>);<span class="comment">//注意此处将棋盘做了一次翻转处理</span></span><br><span class="line">                <span class="keyword">else</span> System.out.println(board[j][i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i != BOARD_SIZE-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; BOARD_SIZE-<span class="number">1</span>;j++)&#123;</span><br><span class="line">                    System.out.print(<span class="string">"  ┃"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"  ┃"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Y轴\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBoard</span><span class="params">(<span class="keyword">int</span> PosX,<span class="keyword">int</span> PosY,<span class="keyword">int</span> chessman)</span></span>&#123;<span class="comment">//落子</span></span><br><span class="line">        <span class="keyword">if</span> (order == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (chessman == computer)</span><br><span class="line">                board[PosX-<span class="number">1</span>][PosY-<span class="number">1</span>] = WHITE;</span><br><span class="line">            <span class="keyword">else</span> board[PosX-<span class="number">1</span>][PosY-<span class="number">1</span>] = BLACK;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (chessman == man)</span><br><span class="line">                board[PosX-<span class="number">1</span>][PosY-<span class="number">1</span>] = WHITE;</span><br><span class="line">            <span class="keyword">else</span> board[PosX-<span class="number">1</span>][PosY-<span class="number">1</span>] = BLACK;</span><br><span class="line">        &#125;</span><br><span class="line">        numChess++;<span class="comment">//总棋子数加1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="游戏类"><a href="#游戏类" class="headerlink" title="游戏类"></a>游戏类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Gobang;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Created by Ben Wen on 2018/8/9.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> Gobang.Chessboard.BLACK;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> Gobang.Chessboard.BOARD_SIZE;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> Gobang.Chessboard.WHITE;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Gobang</span> </span>&#123;<span class="comment">//游戏类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> computer = <span class="number">1</span>;<span class="comment">//用来表示电脑玩家</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> man = <span class="number">2</span>;<span class="comment">//用来表示用户</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> WIN_COUNT = <span class="number">5</span>;<span class="comment">//用来表示获胜所需连子数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> order;<span class="comment">//用来表示执行顺序，1表示用户执黑先走，2表示用户执白后走</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> PosX;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> PosY;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> winner;<span class="comment">//用来表示获胜方</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] computerPosArr;<span class="comment">//用来获取computerDo方法的返回值</span></span><br><span class="line">    <span class="keyword">private</span> Chessboard chessboard;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] a = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Gobang</span> <span class="params">(Chessboard chessboard)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.chessboard = chessboard;</span><br><span class="line">    &#125;<span class="comment">//构造函数，便于使用Chessboard类的方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">         <span class="keyword">new</span> Gobang(<span class="keyword">new</span> Chessboard()).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">start</span> <span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> isOver = <span class="keyword">false</span>;<span class="comment">//游戏是否结束的标志</span></span><br><span class="line"></span><br><span class="line">        chessboard.initBoard();<span class="comment">//初始化棋盘</span></span><br><span class="line">        System.out.println(<span class="string">"请选择您是黑子先走(1)还是白子后走(2)："</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;<span class="comment">//获取order的值，即执行顺序</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));<span class="comment">//获取用户输入</span></span><br><span class="line">                order = Integer.parseInt(reader.readLine());</span><br><span class="line">                <span class="keyword">if</span> (order == <span class="number">1</span> || order == <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"输入错误，请输入数字1或2："</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                System.out.println(<span class="string">"输入错误，请输入数字1或2："</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (order == <span class="number">1</span>) &#123;<span class="comment">//用户执黑先走</span></span><br><span class="line">            chessboard.printBoard();<span class="comment">//打印棋盘</span></span><br><span class="line">            System.out.println(<span class="string">"请输入您下棋的坐标，应以x(空格)y的格式，其中x、y为不大于15的正整数："</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">                String inputStr = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">while</span> ((inputStr = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        isOver = <span class="keyword">false</span>;<span class="comment">//游戏未结束</span></span><br><span class="line"></span><br><span class="line">                        String[] posStrArr = inputStr.split(<span class="string">" "</span>);</span><br><span class="line">                        PosX = Integer.parseInt(posStrArr[<span class="number">0</span>]);<span class="comment">//提取出用户输入中的x坐标</span></span><br><span class="line">                        PosY = Integer.parseInt(posStrArr[<span class="number">1</span>]);<span class="comment">//提取出用户输入中的y坐标</span></span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> (!isValid(PosX, PosY, man)) &#123;<span class="comment">//判断用户输入是否合理</span></span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        chessboard.setBoard(PosX, PosY, man);<span class="comment">//用户落子</span></span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> (isWin(PosX, PosY, man)) &#123;<span class="comment">//判断用户是否获胜</span></span><br><span class="line">                            isOver = <span class="keyword">true</span>;<span class="comment">//游戏可以结束</span></span><br><span class="line">                            winner = man;<span class="comment">//获胜者为用户</span></span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;<span class="comment">//用户未获胜</span></span><br><span class="line">                            computerPosArr = computerDo();<span class="comment">//获取电脑玩家输入</span></span><br><span class="line">                            chessboard.setBoard(computerPosArr[<span class="number">0</span>], computerPosArr[<span class="number">1</span>], computer);<span class="comment">//电脑玩家落子</span></span><br><span class="line">                            <span class="keyword">if</span> (isWin(computerPosArr[<span class="number">0</span>], computerPosArr[<span class="number">1</span>], computer)) &#123;<span class="comment">//判断电脑玩家是否获胜</span></span><br><span class="line">                                isOver = <span class="keyword">true</span>;<span class="comment">//游戏可以结束</span></span><br><span class="line">                                winner = computer;<span class="comment">//获胜者为电脑</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> (isOver) &#123;<span class="comment">//游戏是否结束</span></span><br><span class="line">                            <span class="keyword">if</span> (isReplay(winner)) &#123;<span class="comment">//是否重新开始</span></span><br><span class="line">                                chessboard.initBoard();</span><br><span class="line">                            &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        chessboard.printBoard();</span><br><span class="line">                        System.out.println(<span class="string">"请输入您下棋的坐标，应以x(空格)y的格式，其中x、y为不大于15的正整数："</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;<span class="comment">//数字格式异常，当未按正确格式输入但PosX、PosY均有值时抛出</span></span><br><span class="line">                        System.out.println(<span class="string">"输入错误，请按 数字(空格)数字 格式输入："</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;<span class="comment">//数组越界，当只输入了一个值，即PosY无值时抛出</span></span><br><span class="line">                        System.out.println(<span class="string">"输入错误，请按 数字(空格)数字 格式输入："</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;<span class="comment">//当输入时出现异常时抛出</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">//用户执白后走</span></span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                computerPosArr = computerDo();</span><br><span class="line">                chessboard.setBoard(computerPosArr[<span class="number">0</span>], computerPosArr[<span class="number">1</span>], computer);</span><br><span class="line">                chessboard.printBoard();<span class="comment">//先打印电脑玩家落子后的棋盘</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (isWin(computerPosArr[<span class="number">0</span>], computerPosArr[<span class="number">1</span>], computer)) &#123;</span><br><span class="line">                    winner = computer;</span><br><span class="line">                    isOver = <span class="keyword">true</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;<span class="comment">//如果电脑玩家未获胜，则获取用户输入</span></span><br><span class="line">                    System.out.println(<span class="string">"请输入您下棋的坐标，应以x(空格)y的格式，其中x、y为不大于15的正整数："</span>);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">                        String inputStr = <span class="keyword">null</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((inputStr = reader.readLine()) != <span class="keyword">null</span>)&#123;</span><br><span class="line">                            <span class="keyword">try</span> &#123;</span><br><span class="line">                                String[] posStrArr = inputStr.split(<span class="string">" "</span>);</span><br><span class="line">                                PosX = Integer.parseInt(posStrArr[<span class="number">0</span>]);<span class="comment">//提取出用户输入中的x坐标</span></span><br><span class="line">                                PosY = Integer.parseInt(posStrArr[<span class="number">1</span>]);<span class="comment">//提取出用户输入中的y坐标</span></span><br><span class="line"></span><br><span class="line">                                <span class="keyword">if</span> (!isValid(PosX, PosY, man)) &#123;</span><br><span class="line">                                    <span class="keyword">continue</span>;</span><br><span class="line">                                &#125;</span><br><span class="line">                                chessboard.setBoard(PosX, PosY, man);</span><br><span class="line"></span><br><span class="line">                                <span class="keyword">if</span> (isWin(PosX, PosY, man)) &#123;</span><br><span class="line">                                    winner = man;</span><br><span class="line">                                    isOver = <span class="keyword">true</span>;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</span><br><span class="line">                                System.out.println(<span class="string">"输入错误，请按 数字(空格)数字 格式输入："</span>);</span><br><span class="line">                                <span class="keyword">continue</span>;</span><br><span class="line">                            &#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">                                System.out.println(<span class="string">"输入错误，请按 数字(空格)数字 格式输入："</span>);</span><br><span class="line">                                <span class="keyword">continue</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (isOver) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (isReplay(winner)) &#123;</span><br><span class="line">                        chessboard.initBoard();</span><br><span class="line">                        isOver = <span class="keyword">false</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] computerDo () &#123;<span class="comment">//获取电脑玩家落子（思路为在用户最近一次落子周围八个点中随机落子）</span></span><br><span class="line">        <span class="keyword">boolean</span> isRight = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> randomX = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> randomY = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!isRight) &#123;</span><br><span class="line">            randomX = (<span class="keyword">int</span>)Math.round((Math.random() * <span class="number">3</span>) - <span class="number">1.5</span>);<span class="comment">//在-1,0,1中随机获取一值（round方法表示四舍五入）</span></span><br><span class="line">            randomY = (<span class="keyword">int</span>)Math.round((Math.random() * <span class="number">3</span>) - <span class="number">1.5</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (Math.abs(randomX) != <span class="number">2</span> &amp;&amp; Math.abs(randomY) != <span class="number">2</span>) &#123;<span class="comment">//排除当randomX和randomY等于正负2的情况</span></span><br><span class="line">                <span class="keyword">if</span> (PosX == <span class="number">0</span> &amp;&amp; PosY == <span class="number">0</span>) &#123;<span class="comment">//若电脑玩家走第一步，则随机获取落子点</span></span><br><span class="line">                    PosX = (<span class="keyword">int</span>)(Math.random() * BOARD_SIZE);</span><br><span class="line">                    PosY = (<span class="keyword">int</span>)(Math.random() * BOARD_SIZE);</span><br><span class="line">                    &#125;</span><br><span class="line">                <span class="keyword">if</span> (isValid(PosX+randomX, PosY+randomY, computer)) &#123;<span class="comment">//判断该获取的点是否合理</span></span><br><span class="line">                    isRight = <span class="keyword">true</span>;<span class="comment">//合理则退出循环</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] computerPosArr = &#123;randomX+PosX, randomY+PosY&#125;;<span class="comment">//将结果以数组形式返回</span></span><br><span class="line">        <span class="keyword">return</span> computerPosArr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isWin</span> <span class="params">(<span class="keyword">int</span> PosX, <span class="keyword">int</span> PosY, <span class="keyword">int</span> chessman)</span> </span>&#123;<span class="comment">//判断是否获胜</span></span><br><span class="line">        String chess;<span class="comment">//用来表示此次调用方法需要判断的棋子的颜色</span></span><br><span class="line">        <span class="keyword">int</span> samecount = <span class="number">1</span>;<span class="comment">//用来统计连子数</span></span><br><span class="line">        <span class="keyword">boolean</span> right1 = <span class="keyword">true</span>;<span class="comment">//表示某一个方向上同色棋子是否连续</span></span><br><span class="line">        <span class="keyword">boolean</span> right2 = <span class="keyword">true</span>;<span class="comment">//表示另一个方向上同色棋子是否连续</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (order == <span class="number">1</span>)</span><br><span class="line">            chess = ((chessman == man) ? BLACK : WHITE);</span><br><span class="line">        <span class="keyword">else</span> chess = ((chessman == computer) ? BLACK : WHITE);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (chessboard.numChess &lt; <span class="number">9</span>)<span class="comment">//当总棋子数小于9时一定不会有一方获胜</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; WIN_COUNT &amp;&amp; (right1 || right2);i++)&#123;<span class="comment">//判断左右方向是否满足5连子</span></span><br><span class="line">            <span class="keyword">if</span> (right1 &amp;&amp; PosX+a[i] &gt;= <span class="number">1</span> &amp;&amp; PosX+a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX+a[i]-<span class="number">1</span>][PosY-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right1 = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (right2 &amp;&amp; PosX-a[i] &gt;= <span class="number">1</span> &amp;&amp; PosX-a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX-a[i]-<span class="number">1</span>][PosY-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right2 = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (samecount &gt;= <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        samecount = <span class="number">1</span>;</span><br><span class="line">        right1 = <span class="keyword">true</span>;</span><br><span class="line">        right2 = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; WIN_COUNT &amp;&amp; (right1 || right2);i++)&#123;<span class="comment">//判断上下方向是否满足5连子</span></span><br><span class="line">            <span class="keyword">if</span> (right1 &amp;&amp; PosY+a[i] &gt;= <span class="number">1</span> &amp;&amp; PosY+a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX-<span class="number">1</span>][PosY+a[i]-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right1 = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (right2 &amp;&amp; PosY-a[i] &gt;= <span class="number">1</span> &amp;&amp; PosY-a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX-<span class="number">1</span>][PosY-a[i]-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right2 = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (samecount &gt;= <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        samecount = <span class="number">1</span>;</span><br><span class="line">        right1 = <span class="keyword">true</span>;</span><br><span class="line">        right2 = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; WIN_COUNT &amp;&amp; (right1 || right2);i++)&#123;<span class="comment">//判断左上--右下方向是否满足5连子</span></span><br><span class="line">            <span class="keyword">if</span> (right1 &amp;&amp; PosX+a[i] &gt;= <span class="number">1</span> &amp;&amp; PosX+a[i] &lt;= <span class="number">15</span> &amp;&amp; PosY+a[i] &gt;= <span class="number">1</span> &amp;&amp; PosY+a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX+a[i]-<span class="number">1</span>][PosY+a[i]-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right1 = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (right2 &amp;&amp; PosX-a[i] &gt;= <span class="number">1</span> &amp;&amp; PosX-a[i] &lt;= <span class="number">15</span> &amp;&amp; PosY-a[i] &gt;= <span class="number">1</span> &amp;&amp; PosY-a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX-a[i]-<span class="number">1</span>][PosY-a[i]-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right2 = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (samecount &gt;= <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        samecount = <span class="number">1</span>;</span><br><span class="line">        right1 = <span class="keyword">true</span>;</span><br><span class="line">        right2 = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; WIN_COUNT &amp;&amp; (right1 || right2);i++)&#123;<span class="comment">//判断左下--右上方向是否满足5连子</span></span><br><span class="line">            <span class="keyword">if</span> (right1 &amp;&amp; PosX-a[i] &gt;= <span class="number">1</span> &amp;&amp; PosX-a[i] &lt;= <span class="number">15</span> &amp;&amp; PosY+a[i] &gt;= <span class="number">1</span> &amp;&amp; PosY+a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX-a[i]-<span class="number">1</span>][PosY+a[i]-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right1 = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (right2 &amp;&amp; PosX+a[i] &gt;= <span class="number">1</span> &amp;&amp; PosX+a[i] &lt;= <span class="number">15</span> &amp;&amp; PosY-a[i] &gt;= <span class="number">1</span> &amp;&amp; PosY-a[i] &lt;= <span class="number">15</span> &amp;&amp; chessboard.board[PosX+a[i]-<span class="number">1</span>][PosY-a[i]-<span class="number">1</span>].equals(chess))&#123;</span><br><span class="line">                samecount++;</span><br><span class="line">            &#125; <span class="keyword">else</span> right2 = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (samecount &gt;= <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isValid</span> <span class="params">(<span class="keyword">int</span> PosX, <span class="keyword">int</span> PosY, <span class="keyword">int</span> chessman)</span></span>&#123;<span class="comment">//判断输入是否合理</span></span><br><span class="line">        <span class="keyword">if</span> (PosX &lt; <span class="number">1</span> || PosX &gt; BOARD_SIZE || PosY &lt; <span class="number">1</span> || PosY &gt; BOARD_SIZE)&#123;</span><br><span class="line">            <span class="keyword">if</span> (chessman == man)<span class="comment">//若判断玩家输入时的合理性时才输出这句话</span></span><br><span class="line">                System.out.println(<span class="string">"坐标只能为小于等于"</span> + (BOARD_SIZE) + <span class="string">"的正整数，请重新输入："</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!chessboard.board[PosX-<span class="number">1</span>][PosY-<span class="number">1</span>].equals(<span class="string">"╋"</span>))&#123;</span><br><span class="line">            <span class="keyword">if</span> (chessman == man)</span><br><span class="line">                System.out.println(<span class="string">"当前位置已有棋子，请重新输入："</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isReplay</span> <span class="params">(<span class="keyword">int</span> chessman)</span></span>&#123;<span class="comment">//判断是否开始新的一局</span></span><br><span class="line">        <span class="keyword">int</span> x = chessboard.numChess;<span class="comment">//表示总棋子数</span></span><br><span class="line">        <span class="keyword">int</span> y;<span class="comment">//表示用户落子数</span></span><br><span class="line">        <span class="keyword">if</span> (order == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">                y = x / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span> y = x / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> y = x / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (chessman == man)&#123;</span><br><span class="line">            chessboard.printBoard();</span><br><span class="line">            System.out.println(<span class="string">"恭喜你赢了！共落子"</span> + x + <span class="string">"粒。其中您落子"</span> + y + <span class="string">"粒。"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> System.out.println(<span class="string">"很遗憾你输了！共落子"</span> + x + <span class="string">"粒。其中您落子"</span> + y + <span class="string">"粒。"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"是否再来一局？(y/n)"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            <span class="keyword">if</span> (reader.readLine().equals(<span class="string">"y"</span>)) &#123;</span><br><span class="line">                chessboard.numChess = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+    </div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/08/数据结构与算法/图的最短路径算法/" rel="next" title="图的最短路径算法">
+                <i class="fa fa-chevron-left"></i> 图的最短路径算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar_1.jpg"
+                alt="Ben Wen" />
+            
+              <p class="site-author-name" itemprop="name">Ben Wen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#棋盘类"><span class="nav-number">1.</span> <span class="nav-text">棋盘类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏类"><span class="nav-number">2.</span> <span class="nav-text">游戏类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ben Wen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共20.4k字</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  undefined
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
