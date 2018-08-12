@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="o文蚊蚊o" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="标识符和关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="盘点java数值运算中的那些骚操作">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/java基础/盘点java数值运算中的那些骚操作/index.html">
+<meta property="og:site_name" content="o文蚊蚊o">
+<meta property="og:description" content="标识符和关键字">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/I5GEmdcifE.jpg?imageslim">
+<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/Emi0j32h6J.jpg?imageslim">
+<meta property="og:updated_time" content="2018-08-12T15:16:29.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="盘点java数值运算中的那些骚操作">
+<meta name="twitter:description" content="标识符和关键字">
+<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/12/java基础/盘点java数值运算中的那些骚操作/"/>
+
+
+
+
+
+  <title>盘点java数值运算中的那些骚操作 | o文蚊蚊o</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">o文蚊蚊o</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/java基础/盘点java数值运算中的那些骚操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ben Wen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="o文蚊蚊o">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">盘点java数值运算中的那些骚操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T20:50:58+08:00">
+                2018-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,989
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="标识符和关键字"><a href="#标识符和关键字" class="headerlink" title="标识符和关键字"></a>标识符和关键字</h1><a id="more"></a>
+<p>java标识符必须由字母、下划线、数字、<strong>美元符($)</strong>组成，其中数字不能做开头。</p>
+<ul>
+<li>字母为Unicode字符集所支持的字符，包括但不限于中文字符、日本字符等。</li>
+<li>特殊字符只能包含美元符，其他字符如@、#等不行。</li>
+<li>严格区分大小写。</li>
+<li>不能含有空格。</li>
+</ul>
+<p>java一共包含50个关键字(至java 8)，均为小写。</p>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim" alt="mark"></p>
+<p>goto和const为保留字，至今仍未使用(java 8)，但不代表以后不使用。</p>
+<p>三个特殊直接量：true、false、null。</p>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>直接给出一个整数值默认为int类型。</p>
+<ul>
+<li><p>将一个较小的整数值(byte或short类型范围内)赋值给一个byte或short变量，系统自动将其当做byte或short类型处理。</p>
+<p><em>byte占一个字节，short占两个字节。</em></p>
+</li>
+<li><p>将一个超过int类型的整数值赋值给long时，<strong>java不会自动将这个整数值当long类型来处理，必须得在后面加上L或l。</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java 7引入功能：在整型或浮点型数值中可以任意使用下划线分隔</span></span><br><span class="line"><span class="comment">//输入的是补码</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0B1000_0000_0000_0000_0000_0000_0000_0011</span>;</span><br><span class="line">System.out.println(a);<span class="comment">//输出-2147483645 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0B1000_0000_0000_0000_0000_0000_0000_0011L</span>;</span><br><span class="line">System.out.println(b);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> c = <span class="number">0B1000_0000_0000_0000_0000_0000_0000_0011L</span>;</span><br><span class="line">System.out.println(c);<span class="comment">//输出2147483651</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> d = <span class="number">0B1000_0000_0000_0000_0000_0000_0000_0011</span>;</span><br><span class="line">System.out.println(d);<span class="comment">//输出-2147483645</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h2><p>char类型占两个字节。</p>
+<p>三种表示形式：</p>
+<ul>
+<li>直接通过单个字符来表示：’A’、’9’、’0’等。</li>
+<li>通过转义字符表示特殊字符型值：’\n’、’\t’等。</li>
+<li>直接使用Unicode值来表示字符型值：’\uXXXX’，其中XXXX代表一个十六进制整数。</li>
+</ul>
+<h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><p>java浮点型默认为double类型的值，若希望当成float类型处理需要加上f或F。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a = <span class="number">5.2388858694f</span>;</span><br><span class="line">System.out.println(a);<span class="comment">//输出5.238886</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> b = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(b);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> c = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(c);<span class="comment">//输出5.2388858694</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> d = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(d);<span class="comment">//输出5.238885879516602(小数点第六位之后为随机输出)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q1 = <span class="number">5.6</span>;</span><br><span class="line">System.out.println(q1);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q2 = <span class="number">5.6f</span>;</span><br><span class="line">System.out.println(q2);<span class="comment">//输出5.6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q3 = <span class="number">5</span>;</span><br><span class="line">System.out.println(q3);<span class="comment">//输出5.0</span></span><br></pre></td></tr></table></figure>
+<p>正无穷大通过Double类或Float类的POSITIVE_INFINITY来表示，负无穷大通过Double类或Float类的NEGATIVE_INFINITY来表示，非数用Double类或Float类的NaN来表示。</p>
+<p><strong>所有正无穷大都相等，所有负无穷大也相等，NaN不与任何数值相等，与其本身也不相等。</strong></p>
+<p><strong>只有浮点数除以0才能得到正负无穷大，如果整数值除以0则会抛出异常：java.lang.ArithmeticException: / by zero(除以0异常)。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">5.13</span> / <span class="number">0</span>);<span class="comment">//输出Infinity</span></span><br><span class="line">System.out.println(-<span class="number">5.13</span> / <span class="number">0</span>);<span class="comment">//输出-Infinity</span></span><br><span class="line">System.out.println(<span class="number">0.0</span> / <span class="number">0.0</span>);<span class="comment">//输出NaN</span></span><br><span class="line">System.out.println(<span class="number">0</span> / <span class="number">0</span>);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> q = <span class="number">0.0</span>;</span><br><span class="line">System.out.println(q/q == Float.NaN);<span class="comment">//输出false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> s = Double.NEGATIVE_INFINITY;</span><br><span class="line"><span class="keyword">float</span> g = Float.NEGATIVE_INFINITY;</span><br><span class="line"><span class="keyword">double</span> m = Float.POSITIVE_INFINITY;</span><br><span class="line"><span class="comment">//float n = Double.POSITIVE_INFINITY;非法</span></span><br><span class="line"></span><br><span class="line">System.out.println(Double.NaN == Float.NaN);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(s == g);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(s == m);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(<span class="number">6.0</span> / <span class="number">0</span> == <span class="number">100.0</span> / <span class="number">0</span>);<span class="comment">//输出true</span></span><br></pre></td></tr></table></figure>
+<h1 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h1><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180812/I5GEmdcifE.jpg?imageslim" alt="mark"></p>
+<p>当把任何基本类型的值和字符串值进行连接运算时，基本类型的值将会自动转换为字符串类型。</p>
+<p>当一个算术表达式中包含多个基本类型的值时，整个算术表达式的数据类型将会发生自动提升：</p>
+<ul>
+<li>所有byte类型、short类型、char类型将被提升到int类型。</li>
+<li>整个算术表达式的数据类型自动提升到与表达式中最高等级操作数同样的类型。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">String str1 = <span class="number">2.5f</span> + <span class="string">""</span>;</span><br><span class="line">System.out.println(str1);<span class="comment">//输出2.5</span></span><br><span class="line"></span><br><span class="line">String str2 = <span class="keyword">true</span> + <span class="string">""</span>;</span><br><span class="line">System.out.println(str2);<span class="comment">//输出true</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="number">3</span> + <span class="number">4</span> + <span class="string">"Hello"</span>);<span class="comment">//输出7Hello</span></span><br><span class="line">System.out.println(<span class="string">"Hello"</span> + <span class="number">3</span> + <span class="number">4</span>);<span class="comment">//输出Hello34</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">'a'</span> + <span class="number">2</span> + <span class="string">"Hello"</span>);<span class="comment">//输出99Hello</span></span><br><span class="line">System.out.println(<span class="string">"Hello"</span> + <span class="string">'a'</span> + <span class="number">2</span>);<span class="comment">//输出Helloa2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">short</span> s = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// s = s-2;非法</span></span><br><span class="line">s = (<span class="keyword">short</span>)(s-<span class="number">2</span>);<span class="comment">//合法</span></span><br><span class="line">s -= <span class="number">2</span>;<span class="comment">//合法</span></span><br><span class="line">System.out.println(s);<span class="comment">//输出1</span></span><br></pre></td></tr></table></figure>
+<h1 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h1><p>缩小转换会发生数据丢失：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> a = (<span class="keyword">byte</span>)<span class="number">0B11101001</span>;</span><br><span class="line">System.out.println(a);<span class="comment">//输出-23</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0B11101001</span>;</span><br><span class="line">System.out.println(b);<span class="comment">//输出233</span></span><br></pre></td></tr></table></figure>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>求余运算符和自加自减运算符均可以操作浮点型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">5.2</span> % <span class="number">2.5</span>);<span class="comment">//输出0.20000000000000018</span></span><br><span class="line">System.out.println(<span class="number">5</span> % <span class="number">0.0</span>);<span class="comment">//输出NaN</span></span><br><span class="line">System.out.println(<span class="number">0</span> % <span class="number">5</span>);<span class="comment">//输出0</span></span><br><span class="line">System.out.println(<span class="number">0</span> % <span class="number">0.0</span>);<span class="comment">//输出NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> w = <span class="number">4.3f</span>;</span><br><span class="line">w++;</span><br><span class="line">System.out.println(w);<span class="comment">//输出5.3</span></span><br></pre></td></tr></table></figure>
+<h2 id="位运算符-7个"><a href="#位运算符-7个" class="headerlink" title="位运算符(7个)"></a>位运算符(7个)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">5</span> | <span class="number">9</span>);<span class="comment">//输出13</span></span><br><span class="line">System.out.println(<span class="number">5</span> &amp; <span class="number">9</span>);<span class="comment">//输出1</span></span><br><span class="line">System.out.println(~-<span class="number">5</span>);<span class="comment">//输出4</span></span><br><span class="line">System.out.println(<span class="number">5</span> ^ <span class="number">9</span>);<span class="comment">//输出12</span></span><br><span class="line">System.out.println(<span class="number">5</span> &lt;&lt; <span class="number">2</span>);<span class="comment">//输出20</span></span><br><span class="line">System.out.println(-<span class="number">5</span> &lt;&lt; <span class="number">2</span>);<span class="comment">//输出-20</span></span><br><span class="line">System.out.println(-<span class="number">5</span> &gt;&gt; <span class="number">2</span>);<span class="comment">//输出-2</span></span><br><span class="line">System.out.println(-<span class="number">5</span> &gt;&gt;&gt; <span class="number">2</span>);<span class="comment">//输出107374182</span></span><br></pre></td></tr></table></figure>
+<p><strong>以上均是对补码进行操作。</strong></p>
+<p>右移运算符&gt;&gt;：把第一个操作数的二进制码右移指定位数(第二个操作数指定)后，左边空出来的位用<strong>原来的符号位</strong>来填充。</p>
+<p>无符号右移运算符&gt;&gt;&gt;：把第一个操作数的二进制码右移指定位数(第二个操作数指定)后，左边空出来的位<strong>总是用0</strong>来填充。</p>
+<p>移位运算原则：</p>
+<ul>
+<li>对于低于int类型的操作数总是先自动类型转换为int类型后再移位。</li>
+<li>对于int类型的整数a&gt;&gt;b，当b&gt;32时，系统先对32求余，得到的结果才是真正移位的位数。</li>
+<li>对于long类型的整数a&gt;&gt;b，当b&gt;64时，系统先对64求余，得到的结果才是真正移位的位数。</li>
+</ul>
+<p><strong>若移位没有发生有效位的丢失，则左移n位相当于乘以2的n次方，右移n位相当于除以2的n次方。</strong></p>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p>对于==和!=运算符，如果两个操作数都是引用类型，那么只有当两个引用变量类型具有父子关系时才可以比较，而且这两个引用必须指向同一个对象(不同对象)才会返回true。</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(!<span class="keyword">false</span>);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(<span class="number">5</span> &gt; <span class="number">3</span> &amp;&amp; <span class="string">'6'</span> &lt; <span class="number">10</span>);<span class="comment">//输出false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">5</span> &gt; <span class="number">4</span> &amp;&amp; ++x &gt; <span class="number">10</span>)</span><br><span class="line">	System.out.println(x);<span class="comment">//输出11</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">5</span> &gt; <span class="number">4</span> &amp; ++x &gt; <span class="number">10</span>)</span><br><span class="line">	System.out.println(x);<span class="comment">//输出12</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">5</span> &gt; <span class="number">4</span> || ++x &gt; <span class="number">10</span>)</span><br><span class="line">	System.out.println(x);<span class="comment">//输出12</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">5</span> &gt; <span class="number">4</span> | ++x &gt; <span class="number">10</span>)</span><br><span class="line">	System.out.println(x);<span class="comment">//输出13</span></span><br></pre></td></tr></table></figure>
+<p>对于短路逻辑或||而言，如果第一个数返回true，则不再对第二个操作数求值，直接返回true；而不短路或|总是执行前后两个操作数。</p>
+<p>对于短路逻辑与&amp;&amp;而言，如果第一个数返回false，则不再对第二个操作数求值，直接返回false；而不短路与&amp;总是执行前后两个操作数。</p>
+<h2 id="运算符结合的结合性与优先级"><a href="#运算符结合的结合性与优先级" class="headerlink" title="运算符结合的结合性与优先级"></a>运算符结合的结合性与优先级</h2><p>除单目运算符、赋值运算符、三目运算符是从右到左结合的，其他运算符都是从左到右结合的。</p>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180812/Emi0j32h6J.jpg?imageslim" alt="mark"></p>
+<h1 id="带标签的break和continue"><a href="#带标签的break和continue" class="headerlink" title="带标签的break和continue"></a>带标签的break和continue</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">2</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">outer1:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">2</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">		<span class="keyword">break</span> outer1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">3</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">0!!!!!!2</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!2</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!2</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">outer2:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">3</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">continue</span> outer2;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+    </div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/12/java应用/java控制台五子棋游戏/" rel="next" title="java控制台五子棋游戏">
+                <i class="fa fa-chevron-left"></i> java控制台五子棋游戏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar_1.jpg"
+                alt="Ben Wen" />
+            
+              <p class="site-author-name" itemprop="name">Ben Wen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标识符和关键字"><span class="nav-number">1.</span> <span class="nav-text">标识符和关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">2.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符型"><span class="nav-number">2.2.</span> <span class="nav-text">字符型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型"><span class="nav-number">2.3.</span> <span class="nav-text">浮点型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动类型转换"><span class="nav-number">3.</span> <span class="nav-text">自动类型转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强制类型转换"><span class="nav-number">4.</span> <span class="nav-text">强制类型转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">5.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算符-7个"><span class="nav-number">5.1.</span> <span class="nav-text">位运算符(7个)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-number">5.2.</span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">5.3.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符结合的结合性与优先级"><span class="nav-number">5.4.</span> <span class="nav-text">运算符结合的结合性与优先级</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#带标签的break和continue"><span class="nav-number">6.</span> <span class="nav-text">带标签的break和continue</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ben Wen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.4k字</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  undefined
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"haruto"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
