@@ -82,20 +82,17 @@
 
 
 
-<meta name="description" content="源码：">
+<meta name="description" content="带标签的break和continue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java读取txt文件">
-<meta property="og:url" content="http://yoursite.com/2018/07/26/java应用/java读取txt文件/index.html">
+<meta property="og:title" content="流程控制与数组">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/java基础/流程控制与数组/index.html">
 <meta property="og:site_name" content="o文蚊蚊o">
-<meta property="og:description" content="源码：">
+<meta property="og:description" content="带标签的break和continue">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180726/IddGA7j5dc.png?imageslim">
-<meta property="og:updated_time" content="2018-08-12T05:01:38.417Z">
+<meta property="og:updated_time" content="2018-08-12T15:38:05.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java读取txt文件">
-<meta name="twitter:description" content="源码：">
-<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim">
+<meta name="twitter:title" content="流程控制与数组">
+<meta name="twitter:description" content="带标签的break和continue">
 
 
 
@@ -125,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/26/java应用/java读取txt文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/12/java基础/流程控制与数组/"/>
 
 
 
 
 
-  <title>java读取txt文件 | o文蚊蚊o</title>
+  <title>流程控制与数组 | o文蚊蚊o</title>
   
 
 
@@ -268,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/java应用/java读取txt文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/java基础/流程控制与数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ben Wen">
@@ -285,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java读取txt文件</h1>
+          <h1 class="post-title" itemprop="name headline">流程控制与数组</h1>
         
 
         <div class="post-meta">
@@ -297,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T00:00:51+08:00">
-                2018-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T23:33:55+08:00">
+                2018-08-12
               </time>
             
 
@@ -320,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java应用/" itemprop="url" rel="index">
-                    <span itemprop="name">java应用</span>
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
                   </a>
                 </span>
 
@@ -351,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  344
+                  226
                 </span>
               
 
@@ -367,7 +364,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -388,15 +385,10 @@
       
 
       
-        <p>源码：</p>
-<a id="more"></a>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180726/Hc42GK3d2I.png?imageslim" alt="mark"></p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180726/IddGA7j5dc.png?imageslim" alt="mark"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TXTParseUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Integer ONE = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 读取数据 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">   BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"111.txt"</span>)),</span><br><span class="line"></span><br><span class="line">                   <span class="string">"UTF-8"</span>));</span><br><span class="line"></span><br><span class="line">   String lineTxt = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> ((lineTxt = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">    String[] names = lineTxt.split(<span class="string">","</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (String name : names) &#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> (map.keySet().contains(name)) &#123;</span><br><span class="line"></span><br><span class="line">      map.put(name, (map.get(name) + ONE));</span><br><span class="line"></span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">      map.put(name, ONE);</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   br.close();</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">   System.err.println(<span class="string">"read errors :"</span> + e);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 输出数据 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">   BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"final.txt"</span>)),</span><br><span class="line"></span><br><span class="line">                   <span class="string">"UTF-8"</span>));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> (String name : map.keySet()) &#123;</span><br><span class="line"></span><br><span class="line">    bw.write(name + <span class="string">" "</span> + map.get(name));</span><br><span class="line"></span><br><span class="line">    bw.newLine();</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   bw.close();</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">   System.err.println(<span class="string">"write errors :"</span> + e);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试数据：</p>
-<p>文苏洋,闫少翀,孟超<br>张育铭,王洪展<br>程浩男,路佳琦<br>罗天实,wsy,ysc,mc,zym<br>whz,ljq,lts<br>chn</p>
-<p>运行结果：</p>
-<p>闫少翀 1<br>罗天实 1<br>ysc 1<br>whz 1<br>chn 1<br>王洪展 1<br>lts 1<br>孟超 1<br>文苏洋 1<br>张育铭 1<br>程浩男 1<br>zym 1<br>ljq 1<br>mc 1<br>路佳琦 1<br>wsy 1</p>
+        <h1 id="带标签的break和continue"><a href="#带标签的break和continue" class="headerlink" title="带标签的break和continue"></a>带标签的break和continue</h1><a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">2</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">outer1:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">2</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">		<span class="keyword">break</span> outer1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">3</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">0!!!!!!2</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!2</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!2</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">outer2:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">3</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">continue</span> outer2;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h1 id="基础循环判断语句的注意事项"><a href="#基础循环判断语句的注意事项" class="headerlink" title="基础循环判断语句的注意事项"></a>基础循环判断语句的注意事项</h1><p>使用if…else语句时，应当把包含范围小的条件放在前面处理。</p>
 
       
     </div>
@@ -427,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/21/其他/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/08/12/java基础/盘点java数值运算中的那些骚操作/" rel="next" title="盘点java数值运算中的那些骚操作">
+                <i class="fa fa-chevron-left"></i> 盘点java数值运算中的那些骚操作
               </a>
             
           </div>
@@ -436,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/27/数据结构与算法/数据结构基础/" rel="prev" title="数据结构基础">
-                数据结构基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -491,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -554,6 +551,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#带标签的break和continue"><span class="nav-number">1.</span> <span class="nav-text">带标签的break和continue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础循环判断语句的注意事项"><span class="nav-number">2.</span> <span class="nav-text">基础循环判断语句的注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
