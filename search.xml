@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1]]></title>
+    <url>%2F2018%2F08%2F13%2F1%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[流程控制与数组]]></title>
     <url>%2F2018%2F08%2F12%2Fjava%E5%9F%BA%E7%A1%80%2F%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%B8%8E%E6%95%B0%E7%BB%84%2F</url>
     <content type="text"><![CDATA[带标签的break和continue 1234567891011121314151617181920212223242526for (int t = 0;t &lt; 3;t++)&#123; for (int u = 0;u &lt; 2;u++) &#123; System.out.println(t + "!!!!!!" + u); break; &#125;&#125;/*输出：0!!!!!!01!!!!!!02!!!!!!0*/outer1:for (int t = 0;t &lt; 3;t++)&#123; for (int u = 0;u &lt; 2;u++) &#123; System.out.println(t + "!!!!!!" + u); break outer1; &#125;&#125;/*输出：0!!!!!!0*/ 123456789101112131415161718192021222324252627282930313233for (int t = 0;t &lt; 3;t++)&#123; for (int u = 0;u &lt; 3;u++) &#123; if (u == 1) continue; System.out.println(t + "!!!!!!" + u); &#125;&#125;/*输出：0!!!!!!00!!!!!!21!!!!!!01!!!!!!22!!!!!!02!!!!!!2*/outer2:for (int t = 0;t &lt; 3;t++)&#123; for (int u = 0;u &lt; 3;u++) &#123; if (u == 1) continue outer2; System.out.println(t + "!!!!!!" + u); &#125;&#125;/*输出：0!!!!!!01!!!!!!02!!!!!!0*/ 基础循环判断语句的注意事项使用if…else语句时，应当把包含范围小的条件放在前面处理。]]></content>
