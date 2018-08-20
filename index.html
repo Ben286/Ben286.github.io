@@ -296,6 +296,306 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/java/java基础/面向对象深入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ben Wen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="o文蚊蚊o">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/20/java/java基础/面向对象深入/" itemprop="url">面向对象深入</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T21:09:18+08:00">
+                2018-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,362
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h1><p>JDK 1.5提供了自动装箱与自动拆箱功能。</p>
+<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180820/i4el7cAjA7.jpg?imageslim" alt="mark"></p>
+<p>将字符串类型转换为基本类型：</p>
+<ul>
+<li>利用包装类提供的parseXxx(String s)静态方法</li>
+<li>利用包装类提供的Xxx(String s)构造器</li>
+</ul>
+<p>将基本类型转换为字符串类型：</p>
+<ul>
+<li>利用String类提供的多个重载的valueOf()方法</li>
+</ul>
+<p><strong>虽然包装类型为引用数据类型，但包装类的实例可以与数值类型进行比较，这种比较是直接取出包装类的实例所包装的数值来进行比较的。</strong></p>
+<p>将一个int类型的值赋给一个Integer类型的实例：</p>
+<ul>
+<li>当整数在-128到127之间时，int类型的值会放入一个数组中缓存起来，故同一个整数总是引用同一个数组元素，它们全部相等。</li>
+<li>当整数不在这个范围内时，自动装箱后同一个整数对应的实例不相等。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCacheTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Integer in0 = <span class="number">6</span>;</span><br><span class="line">		Integer in8 = <span class="number">6</span>;</span><br><span class="line">		System.out.println(in0 == in8);<span class="comment">//输出true</span></span><br><span class="line">		Integer in1 = <span class="keyword">new</span> Integer(<span class="number">6</span>);</span><br><span class="line">		Integer in2 = Integer.valueOf(<span class="number">6</span>);</span><br><span class="line">		Integer in3 = Integer.valueOf(<span class="number">6</span>);</span><br><span class="line">		System.out.println(in0 == in1);<span class="comment">//输出false</span></span><br><span class="line">		System.out.println(in0 == in2);<span class="comment">//输出true</span></span><br><span class="line">		System.out.println(in2 == in3);<span class="comment">//输出true</span></span><br><span class="line">		System.out.println(in1 == in3);<span class="comment">//输出false</span></span><br><span class="line"></span><br><span class="line">		Integer in4 = Integer.valueOf(<span class="number">200</span>);</span><br><span class="line">		Integer in5 = Integer.valueOf(<span class="number">200</span>);</span><br><span class="line">		Integer in6 = <span class="number">200</span>;</span><br><span class="line">		Integer in7 = <span class="number">200</span>;</span><br><span class="line">		System.out.println(in4 == in5);<span class="comment">//输出false</span></span><br><span class="line">		System.out.println(in6 == in7);<span class="comment">//输出false</span></span><br><span class="line">		System.out.println(in4 == in6);<span class="comment">//输出false</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="处理对象"><a href="#处理对象" class="headerlink" title="处理对象"></a>处理对象</h1><h2 id="toString-方法"><a href="#toString-方法" class="headerlink" title="toString()方法"></a>toString()方法</h2><p>当方法输出一个对象时，实际上输出的是该对象的toString()方法的返回值。</p>
+<p>Object类提供的toString()方法总是返回”类名+@+hashCode”值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person p = <span class="keyword">new</span> Person();</span><br><span class="line">System.out.println(p);</span><br><span class="line">System.out.println(p.toString());</span><br></pre></td></tr></table></figure>
+<p>大部分时候，重写toString()方法总是返回该对象的所有令人感兴趣的信息所组成的字符串。</p>
+<h2 id="："><a href="#：" class="headerlink" title="==："></a>==：</h2><ul>
+<li>对基本类型变量，只要两个变量的值相等即返回true。(不要求数据类型严格相同)</li>
+<li>对引用类型变量，只有两个相同或具有父子关系的对象才可判断，只有指向同一对象时才返回true</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> r = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">short</span> t = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">float</span> y = <span class="number">4.0f</span>;</span><br><span class="line"><span class="keyword">double</span> q = <span class="number">4.0</span>;</span><br><span class="line">System.out.println(r == t);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(r == q);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(r == y);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(<span class="string">'A'</span> == <span class="number">65</span>);<span class="comment">//输出true</span></span><br></pre></td></tr></table></figure>
+<h2 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h2><p>专门用来管理在编译时被确定并保存在已编译的.class文件中的一些数据，它包括了关于类、方法、接口中的常量，<strong>还包括字符串常量。</strong></p>
+<p><strong>String str = “hello”;与String str = new String(“hello”);的区别：</strong></p>
+<ul>
+<li>前者使用”hello”字符串直接量，保存在常量池中</li>
+<li>后者先用常量池保存”hello”直接量，再调用String的构造器来创建一个新的对象，保存在堆内存中。</li>
+</ul>
+<p><strong>JVM常量池保证相同的字符串直接量只有一个，不会产生多个副本。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">String str1 = <span class="string">"hello"</span>;</span><br><span class="line">String str2 = <span class="string">"hello"</span>;</span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//输出true</span></span><br><span class="line"></span><br><span class="line">String str3 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</span><br><span class="line">String str4 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//输出true</span></span><br><span class="line"></span><br><span class="line">String s1 = <span class="string">"疯狂java"</span>;</span><br><span class="line">String s2 = <span class="string">"疯狂"</span>;</span><br><span class="line">String s3 = <span class="string">"java"</span>;</span><br><span class="line">String s4 = <span class="string">"疯狂"</span> + <span class="string">"java"</span>;</span><br><span class="line">String s5 = s2 + s3;<span class="comment">//编译时不能确定下来</span></span><br><span class="line">String s6 = <span class="keyword">new</span> String(<span class="string">"疯狂java"</span>);</span><br><span class="line"><span class="keyword">final</span> String s7 = <span class="string">"疯狂"</span>;<span class="comment">//直接量</span></span><br><span class="line"><span class="keyword">final</span> String s8 = <span class="string">"java"</span>;<span class="comment">//直接量</span></span><br><span class="line">String s9 = s7 + s8;<span class="comment">//两个直接量的连接运算，可以在编译阶段被确定</span></span><br><span class="line">System.out.println(s1 == s4);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(s1 == s5);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(s1 == s9);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(s1 == s6);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(s1.equals(s5));<span class="comment">//输出true</span></span><br><span class="line">System.out.println(s1.equals(s6));<span class="comment">//输出true</span></span><br></pre></td></tr></table></figure>
+<h2 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals()方法"></a>equals()方法</h2><p>Object类提供的equals()方法同样要求两个引用变量指向同一个对象，与==没什么区别，故实际应用中常常需要重写。</p>
+<p>String类重写了Object类的equals()方法，只要两个字符串所包含的字符序列相同，即返回true。</p>
+<p>正确重写equals()方法需要满足条件：</p>
+<ul>
+<li>自反性</li>
+<li>对称性</li>
+<li>传递性</li>
+<li>一致性：只要x与y不变，x.equals(y)返回值不变</li>
+<li>对任何不是null的x，x.equals(null)一定返回false</li>
+</ul>
+<h1 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h1><p>始终只能创建一个实例的类。</p>
+<p>将构造器用private修饰，提供一个public static修饰的方法作为访问点。</p>
+<p>需要一个private static修饰的成员变量来保存曾经创建过的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Singleton s1 = Singleton.getInstance();</span><br><span class="line">		Singleton s2 = Singleton.getInstance();</span><br><span class="line">		System.out.println(s1 == s2);<span class="comment">//输出true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;<span class="comment">//用来缓存曾经创建的实例</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;<span class="comment">//提供一个静态方法用于返回单例类的实例</span></span><br><span class="line">		<span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;<span class="comment">//可加入自定义控制保证只产生一个对象</span></span><br><span class="line">			instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="final修饰符"><a href="#final修饰符" class="headerlink" title="final修饰符"></a>final修饰符</h1><p>final可用于修饰类、变量、方法，用于表示它修饰的类、变量、方法不可改变。</p>
+<h2 id="final成员变量"><a href="#final成员变量" class="headerlink" title="final成员变量"></a>final成员变量</h2><p><strong>必须由程序员显示指定初始值。</strong></p>
+<p>类变量：必须在静态初始化块中指定初始值或声明该变量时指定初始值，两者之一。</p>
+<p>实例变量：必须在非静态初始化块、声明该实例变量或构造器中指定初始值，三者之一。</p>
+<p>如果打算在构造器或初始化块中对final成员变量进行初始化，则不要在初始化之前就访问成员变量，<strong>因为系统不会进行隐式初始化。</strong></p>
+<h2 id="final局部变量"><a href="#final局部变量" class="headerlink" title="final局部变量"></a>final局部变量</h2><p>如果在定义时未指定默认值，则可以在后面的代码中对该final变量赋初始值，但只能一个，不能重复赋值。若定义时已经指定默认值，则不可再次赋值。</p>
+<p>final修饰的形参不能被赋值。</p>
+<p><strong>final修饰引用变量时，只能保证这个引用类型变量所引用的地址不会改变，即一直引用同一个对象，但这个对象完全可以发生改变。</strong></p>
+<p><strong>只要满足以下条件，final变量不再是一个变量，而是相当于一个直接量：</strong></p>
+<ul>
+<li>使用final修饰符修饰</li>
+<li>在定义该final变量时指定了初始值</li>
+<li><strong>该初始值可以在编译时被确定下来</strong></li>
+</ul>
+<p>final修饰符的一个重要用途。编译器会把程序中所有用到该变量的地方直接替换成该变量的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> o = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> u = <span class="number">3</span>-<span class="number">3</span>;</span><br><span class="line">System.out.println(u*u);<span class="comment">//输出0，没有c语言#define那样的骚操作</span></span><br><span class="line"><span class="keyword">final</span> String book = <span class="string">"疯狂java讲义："</span> + <span class="number">99.0</span>;</span><br><span class="line"><span class="keyword">final</span> String book1 = <span class="string">"疯狂java讲义："</span> + String.valueOf(<span class="number">99.0</span>);<span class="comment">//调用了方法，无法在编译时被确定下来</span></span><br><span class="line">System.out.println(book == <span class="string">"疯狂java讲义：99.0"</span>);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(book1 == <span class="string">"疯狂java讲义：99.0"</span>);<span class="comment">//输出false</span></span><br></pre></td></tr></table></figure>
+<h2 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a>final方法</h2><p>final修饰的方法不可被重写，然而可以在子类中定义相同方法名、形参列表、返回值类型的方法。</p>
+<p><strong>可以被重载。</strong></p>
+<h2 id="final类"><a href="#final类" class="headerlink" title="final类"></a>final类</h2><p>不可以有子类。</p>
+<h2 id="不可变类"><a href="#不可变类" class="headerlink" title="不可变类"></a>不可变类</h2><p>创建该类的实例后，该实例的实例变量不可改变。</p>
+<p>8个包装类与String类都是不可变类。</p>
+<p>原则：</p>
+<ul>
+<li>成员变量用private final修饰</li>
+<li>提供带参数的构造器初始化成员变量</li>
+<li>仅为成员变量提供getter方法，不提供setter方法</li>
+<li>如有必要，重写hashCode()方法与equals()方法(用equals()判断为相等的对象的hashCode()也相等)</li>
+</ul>
+<p><strong>当创建不可变类时，如果它包含的成员变量的类型是可变的，那么其对象的成员变量的值依然可变，这个不可变类创建失败。(例如包含一个引用类型的成员变量，而这个引用类为可变类)</strong></p>
+<p>解决方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;<span class="comment">//一个可变类</span></span><br><span class="line">	<span class="keyword">private</span> String firstName;</span><br><span class="line">	<span class="keyword">private</span> String lastName;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Name</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Name</span><span class="params">(String firstname, String lastname)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.firstName = firstname;</span><br><span class="line">		<span class="keyword">this</span>.lastName = lastname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirstName</span><span class="params">(String firstname)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.firstName = firstname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLastName</span><span class="params">(String lastname)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.lastName = lastname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> firstName;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> lastName;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;<span class="comment">//设计出的不可变类</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Name name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Name name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = <span class="keyword">new</span> Name(name.getFirstName(), name.getLastName());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Name <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Name(name.getFirstName(), name.getLastName());<span class="comment">//返回一个匿名对象</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Name name = <span class="keyword">new</span> Name(<span class="string">"Ben"</span>,<span class="string">"Wen"</span>);</span><br><span class="line">		Person p = <span class="keyword">new</span> Person(name);</span><br><span class="line">		System.out.println(p.getName().getFirstName());<span class="comment">//输出Ben</span></span><br><span class="line">		name.setFirstName(<span class="string">"John"</span>);</span><br><span class="line">		System.out.println(p.getName().getFirstName());<span class="comment">//输出Ben</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><p>规则：</p>
+<ul>
+<li>使用abstract修饰符来定义。</li>
+<li>有抽象方法的类一定是抽象类，抽象类中可以没有抽象方法，也可以有普通方法。</li>
+<li>抽象方法没有方法体(即没有{})，结尾有；</li>
+<li>抽象类不能被实例化。</li>
+<li>抽象类可以包括成员变量、方法、构造器、初始化块、内部类(接口、枚举)，构造器不能用于创建实例，主要被子类调用。</li>
+<li><strong>如果子类没有完全实现抽象类中的抽象方法，则子类也必须用abstract修饰。</strong></li>
+</ul>
+<p>使用abstract修饰类时，表明这个类必须被继承；使用abstract修饰方法时，表明这个方法必须被重写，<strong>因此final与abstract永远不能同时使用！！！</strong></p>
+<p>static修饰的方法可以通过类直接调用，但抽象方法被调用时会出现错误，<strong>因此static与abstract不能同时修饰一个方法。(不是绝对互斥，可以同时修饰内部类)</strong></p>
+<p><strong>private与abstract也不能同时修饰方法。</strong></p>
+<p><strong>抽象类体现的是一种模板模式的设计，抽象类作为多个子类的通用模板，子类在此基础上进行扩展、改造。</strong></p>
+<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>接口不提供任何实现，它体现的是规范和实现分离的设计哲学。</p>
+<p>规则：</p>
+<ul>
+<li>使用interface关键字定义接口</li>
+<li>接口内不能包含构造器和初始化块，只能包含成员变量(必须为静态常量)、方法(只能为抽象实例方法、类方法或默认方法)、内部类(接口、枚举)</li>
+<li>接口的修饰符组合只能为public abstract或只有abstract，后者为包访问权限，abstract为系统自动添加</li>
+<li>接口中的成员变量总是public static final修饰，在定义时必须指定初始值，系统自动添加</li>
+<li>接口中的普通方法总是public abstract修饰，不能有方法体，系统自动添加</li>
+<li>接口中的类方法、默认方法必须有方法体，默认方法为java 8开始支持，必须由public default修饰，public为系统自动添加</li>
+<li>接口中的内部类、内部接口、内部枚举总是public static修饰，系统自动添加</li>
+<li>接口支持多继承，但只能继承接口，不能继承类。</li>
+</ul>
+<p><strong>接口可以用于声明引用类型变量，这个引用类型变量必须引用到实现了该接口的对象。</strong></p>
+<p>一个类可以实现多个接口，实现用implements关键字表示。</p>
+<p><strong>一个类实现了一个或多个接口后，这个类必须完全实现这些接口里所定义的全部抽象方法，否则将会保留剩下的抽象方法，该类必须声明为抽象类。</strong></p>
+<p>实现类中实现的接口中的方法必须为public，因为访问权限只能更大或相等而接口中的抽象实例方法全为public。</p>
+<p>所有接口类型的引用变量都可以直接赋给Object类型的引用变量。</p>
+<p><strong>默认方法不能重写Object中的方法，但可以重载Object中的方法。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Product</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getProduceTime</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Output</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> MAX_CACHE_LINE = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">out</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">getData</span><span class="params">(String msg)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(String... msgs)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (String msg : msgs)&#123;</span><br><span class="line">			System.out.println(msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"默认的test()方法"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> String <span class="title">staticTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"接口里的类方法"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Printer</span> <span class="keyword">implements</span> <span class="title">Output</span> , <span class="title">Product</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String[] printData = <span class="keyword">new</span> String[MAX_CACHE_LINE];</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> dataNum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">out</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (dataNum &gt; <span class="number">0</span>)&#123;</span><br><span class="line">			System.out.println(<span class="string">"打印机打印："</span> + printData[<span class="number">0</span>]);</span><br><span class="line">			System.arraycopy(printData,<span class="number">1</span>,printData,<span class="number">0</span>,--dataNum);<span class="comment">//把作业队列整体前移1位，并将剩下的作业数减1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">(String msg)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(dataNum &gt;= MAX_CACHE_LINE)&#123;</span><br><span class="line">			System.out.println(<span class="string">"输出队列已满，添加失败"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">			printData[dataNum++] = msg;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getProduceTime</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">45</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Output o = <span class="keyword">new</span> Printer();</span><br><span class="line">		o.getData(<span class="string">"1111111"</span>);</span><br><span class="line">		o.getData(<span class="string">"2222222"</span>);</span><br><span class="line">		o.getData(<span class="string">"3333333"</span>);</span><br><span class="line">		o.out();</span><br><span class="line">		System.out.println(<span class="string">"----------"</span>);</span><br><span class="line">		o.getData(<span class="string">"4444444"</span>);</span><br><span class="line">		o.out();</span><br><span class="line">		o.print(<span class="string">"abc"</span>,<span class="string">"def"</span>,<span class="string">"xyz"</span>);</span><br><span class="line">		o.test();</span><br><span class="line">		Output.staticTest();</span><br><span class="line">		<span class="comment">// System.out.println(o.getProduceTime());</span></span><br><span class="line">		Printer r = <span class="keyword">new</span> Printer();</span><br><span class="line">		System.out.println(r.getProduceTime());</span><br><span class="line">		r.getData(<span class="string">"7777777"</span>);</span><br><span class="line">		r.out();</span><br><span class="line"></span><br><span class="line">		Product p = <span class="keyword">new</span> Printer();</span><br><span class="line">		System.out.println(p.getProduceTime());</span><br><span class="line">		<span class="comment">// p.getData("5555555");某种接口类型的变量只能调用该种接口中的方法的实现</span></span><br><span class="line">		Object obj = p;</span><br><span class="line">		<span class="comment">// System.out.println(obj.getProduceTime());</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">打印机打印：1111111</span></span><br><span class="line"><span class="comment">打印机打印：2222222</span></span><br><span class="line"><span class="comment">打印机打印：3333333</span></span><br><span class="line"><span class="comment">----------</span></span><br><span class="line"><span class="comment">打印机打印：4444444</span></span><br><span class="line"><span class="comment">abc</span></span><br><span class="line"><span class="comment">def</span></span><br><span class="line"><span class="comment">xyz</span></span><br><span class="line"><span class="comment">默认的test()方法</span></span><br><span class="line"><span class="comment">45</span></span><br><span class="line"><span class="comment">打印机打印：7777777</span></span><br><span class="line"><span class="comment">45</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>简单工厂模式、命令模式，见疯狂java讲义第三版P196</p>
+<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+    
+    </div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/java/java基础/面向对象基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1956,192 +2256,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/数据结构与算法/树（二）--二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ben Wen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar_1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="o文蚊蚊o">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/30/数据结构与算法/树（二）--二叉树/" itemprop="url">树（二）--二叉树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T18:15:19+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,199
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>二叉树的定义：二叉树是n(n &gt;= 0)个结点的有限集合，该集合或者为空集(空二叉树)，或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/30/数据结构与算法/树（二）--二叉树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-    
-    </div>
-	
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2191,7 +2310,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2274,7 +2393,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.3k字</span>
+  <span class="post-count">博客全站共30.7k字</span>
 </div>
 
 <div class="powered-by">
