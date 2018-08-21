@@ -1927,7 +1927,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9affcf;
+  background: #ffeca2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2807,6 +2807,7 @@ img:hover {
   margin-top: 300px;
   width: 240px;
   background: #f5f5d5;
+  opacity: 0.8;
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2859,7 +2860,7 @@ img:hover {
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,169,234,0.5);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
@@ -3103,10 +3104,10 @@ body {
   background-position: 50% 50%;
 }
 @font-face {
-  font-family: simi;
-  src: url("/fonts/simi.otf");
+  font-family: Wisdom Script;
+  src: url("/fonts/Wisdom Script.otf");
 }
 .site-title {
   font-size: 30px !important;
-  font-family: 'simi' !important;
+  font-family: 'Wisdom Script' !important;
 }
