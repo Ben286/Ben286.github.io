@@ -1927,7 +1927,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0d5dff;
+  background: #d490ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2862,15 +2862,11 @@ img:hover {
   color: #fff;
   background: rgba(0,169,234,0.5);
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-meta {
-    box-shadow: 0 0 16px rgba(0,0,0,0.5);
-  }
+.site-meta #  +tablet() {
+  box-shadow: 0 0 16px rgba(0,0,0,0.5);
 }
-@media (max-width: 767px) {
-  .site-meta {
-    box-shadow: 0 0 16px rgba(0,0,0,0.5);
-  }
+.site-meta #  +mobile() {
+  box-shadow: 0 0 16px rgba(0,0,0,0.5);
 }
 .brand {
   padding: 0;
