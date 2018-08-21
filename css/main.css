@@ -1927,7 +1927,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3674e3;
+  background: #ff87f0;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2781,6 +2781,7 @@ img:hover {
   padding: 40px;
   width: calc(100% - 260px);
   background: #fff;
+  opacity: 0.8;
   min-height: 700px;
   box-shadow: initial;
   border-radius: initial;
@@ -2806,6 +2807,7 @@ img:hover {
   margin-top: 300px;
   width: 240px;
   background: #f5f5d5;
+  opacity: 0.9;
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2858,7 +2860,7 @@ img:hover {
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: #222;
+  background: rgba(0,0,0,0.3);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
@@ -3094,4 +3096,18 @@ img:hover {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("http://p63sxxlje.bkt.clouddn.com/blog/180821/lA6bIHDFli.jpg?imageslim");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+@font-face {
+  font-family: simi;
+  src: url("/fonts/simi.otf");
+}
+.site-title {
+  font-size: 30px !important;
+  font-family: 'simi' !important;
 }
