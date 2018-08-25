@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[图的拓扑排序与关键路径]]></title>
-    <url>%2F2018%2F08%2F25%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%2F%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84%2F</url>
-    <content type="text"><![CDATA[拓扑排序AOV网：在一个表示工程的有向图中，用顶点表示活动，用弧边数活动间的优先关系，这样的有向图表示活动的网，称为AOV网。 AOV网中不能出现回路。 拓扑序列：设G=(V,E)是一个具有n个顶点的有向图，V中的顶点序列v1,v2,…,vn，满足若从顶点vi到vj有一条路径，则在顶点序列中顶点vi必须在顶点vj之前·，这样的序列称为拓扑序列。 拓扑排序：对一个有向图构造拓扑序列的过程。 算法的基本思路：从一个网中选择一个入度为0的顶点输出，然后删除此顶点，并删除以此顶点为尾的弧，继续重复此步骤，直到输出全部顶点(表明是AOV网)或不存在入度为0的顶点为止。 所用结构：增加入度域的邻接表 12345678910111213141516171819typedef struct EdgeNode&#123; int adjvex; int weight; struct EdgeNode *next;&#125;EdgeNode;typedef struct VertexNode&#123; int in; int data; EdgeNode *firstedge;&#125;VertexNode,AdjList[MAXVEX];typedef struct&#123; AdjList adjlist; int numVertexes,numEdges;&#125;graphAdjList,*GraphAdjList; 算法(需要辅助数据结构–栈): 12345678910111213141516171819202122232425262728Status TopologicalSort(GraphAdjList GL)&#123; EdgeNode *e; int top = -1;//栈指针下标 int count = 0;//统计输出顶点个数 int *stack;//创建栈，用于存储入度为0的顶点 stack = (int*)malloc(GL-&gt;numVertexes * sizeof(int)); for (int i = 0;i &lt; GL-&gt;numVertexes;i++) if (GL-&gt;adjList[i].in == 0) stack[++top] = i;//将最开始入度为0的顶点入栈 while (top != -1) &#123; int gettop = stack[top--];//将一个入度为0的顶点出栈进行操作 printf("%d -&gt; "GL-&gt;adjList[gettop].data); count++; for (e = GL-&gt;adjList[gettop].firstedge;e;e = e-&gt;next) //遍历刚出栈顶点的所有相邻接顶点，将新的入度为0的顶点入栈 &#123; int k = adjVex; if (!(--GL-&gt;adjList[k].in)) stack[++top] = k; &#125; &#125; if (count &lt; GL-&gt;numVertexes) return ERROR; else return OK;&#125; 时间复杂度为O(n+e)。 该算法执行结果仅仅为所有拓扑排序方案的一种。 关键路径AOE网：在一个表示工程的带权有向图中，用顶点表示事件，用有向边表示活动，用边上的权值表示活动的持续时间，这种有向图的边表示活动的网称为AOE网。 没有入边的顶点称为始点或源点，没有出边的顶点称为终点或汇点。一般情况下AOE网只有一个源点一个汇点。 AOV网是顶点表示活动的网，它只描述活动之间的制约关系，而AOE网是用边表示活动的网，边上的权值表示活动的持续时间。AOE网要建立在活动没有矛盾的基础之上，再来分析完成整个工程至少需要多少时间，或为缩短完成工程所需时间，应加快哪些活动等问题。]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[hexo布局架构及功能分析]]></title>
     <url>%2F2018%2F08%2F21%2F%E5%85%B6%E4%BB%96%2Fhexo%E5%B8%83%E5%B1%80%E6%9E%B6%E6%9E%84%E5%8F%8A%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[部分文件或文件夹功能介绍： _config.yml hexo博客整体的配置文件 scaffolds post、page、draft的模板文件 post 即新发布的博客 page 主要是about、tags、categories等页面 draft 即草稿 themes 主题文件夹 source about 关于页面 _post 发布的.md微博存储位置 tags 标签页面 ~/blog/themes/next/source/css/_custom 第三方配置文件，在这里写可以覆盖主题默认配置 ~/blog/themes/next/source/css/_schemes/Pisces _brand.styl 修改title块的配置，即黑色背景部分 index.styl 总的配置文件，导入其他配置文件 _layout.styl 正文部分及侧边栏部分配置文件 _sidebar.styl 侧边栏配置文件，删除background-color部分在_layout.styl中的设置才能生效 themes/next/source/css/_variables base.styl 定义了颜色的名字以及其对应的颜色值 1234567$whitesmoke = #f5f5f5$gainsboro = #eee$gray-lighter = #ddd$grey-light = #ccc$grey = #bbb$grey-dark = #999$grey-dim = #666 Pisces.styl 定义了next主题的Pisces主题的各个部分的颜色配置 1234567891011121314151617// Header// --------------------------------------------------$subtitle-color = $gray-lighter// Sidebar// --------------------------------------------------$sidebar-offset = unit(hexo-config(&apos;sidebar.offset&apos;), px) if hexo-config(&apos;sidebar.offset&apos;) is a &apos;unit&apos;$sidebar-nav-hover-color = $orange$sidebar-highlight = $orange$site-author-image-width = 120px$site-author-image-border-width = 1px$site-author-image-border-color = $gainsboro$site-author-name-margin = 0$site-author-name-color = $black-deep 来源：www.holmeyoung.com]]></content>
@@ -59,6 +51,14 @@
       <categories>
         <category>java</category>
         <category>java应用</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[图的拓扑排序与关键路径]]></title>
+    <url>%2F2018%2F08%2F08%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%2F%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84%2F</url>
+    <content type="text"><![CDATA[拓扑排序 AOV网：在一个表示工程的有向图中，用顶点表示活动，用弧边数活动间的优先关系，这样的有向图表示活动的网，称为AOV网。 AOV网中不能出现回路。 拓扑序列：设G=(V,E)是一个具有n个顶点的有向图，V中的顶点序列v1,v2,…,vn，满足若从顶点vi到vj有一条路径，则在顶点序列中顶点vi必须在顶点vj之前·，这样的序列称为拓扑序列。 拓扑排序：对一个有向图构造拓扑序列的过程。 算法的基本思路：从一个网中选择一个入度为0的顶点输出，然后删除此顶点，并删除以此顶点为尾的弧，继续重复此步骤，直到输出全部顶点(表明是AOV网)或不存在入度为0的顶点为止。 所用结构：增加入度域的邻接表 12345678910111213141516171819typedef struct EdgeNode&#123; int adjvex; int weight; struct EdgeNode *next;&#125;EdgeNode;typedef struct VertexNode&#123; int in; int data; EdgeNode *firstedge;&#125;VertexNode,AdjList[MAXVEX];typedef struct&#123; AdjList adjlist; int numVertexes,numEdges;&#125;graphAdjList,*GraphAdjList; 算法(需要辅助数据结构–栈): 12345678910111213141516171819202122232425262728Status TopologicalSort(GraphAdjList GL)&#123; EdgeNode *e; int top = -1;//栈指针下标 int count = 0;//统计输出顶点个数 int *stack;//创建栈，用于存储入度为0的顶点 stack = (int*)malloc(GL-&gt;numVertexes * sizeof(int)); for (int i = 0;i &lt; GL-&gt;numVertexes;i++) if (GL-&gt;adjList[i].in == 0) stack[++top] = i;//将最开始入度为0的顶点入栈 while (top != -1) &#123; int gettop = stack[top--];//将一个入度为0的顶点出栈进行操作 printf("%d -&gt; "GL-&gt;adjList[gettop].data); count++; for (e = GL-&gt;adjList[gettop].firstedge;e;e = e-&gt;next) //遍历刚出栈顶点的所有相邻接顶点，将新的入度为0的顶点入栈 &#123; int k = adjVex; if (!(--GL-&gt;adjList[k].in)) stack[++top] = k; &#125; &#125; if (count &lt; GL-&gt;numVertexes) return ERROR; else return OK;&#125; 时间复杂度为O(n+e)。 该算法执行结果仅仅为所有拓扑排序方案的一种。 关键路径AOE网：在一个表示工程的带权有向图中，用顶点表示事件，用有向边表示活动，用边上的权值表示活动的持续时间，这种有向图的边表示活动的网称为AOE网。 没有入边的顶点称为始点或源点，没有出边的顶点称为终点或汇点。一般情况下AOE网只有一个源点一个汇点。 AOV网是顶点表示活动的网，它只描述活动之间的制约关系，而AOE网是用边表示活动的网，边上的权值表示活动的持续时间。AOE网要建立在活动没有矛盾的基础之上，再来分析完成整个工程至少需要多少时间，或为缩短完成工程所需时间，应加快哪些活动等问题。]]></content>
+      <categories>
+        <category>数据结构与算法</category>
       </categories>
   </entry>
   <entry>
