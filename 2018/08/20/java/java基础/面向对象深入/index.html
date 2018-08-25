@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180820/i4el7cAjA7.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180821/7Fa3kiJbH3.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180821/C1jgl0CI0c.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-21T15:54:51.466Z">
+<meta property="og:updated_time" content="2018-08-25T14:21:40.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象深入">
 <meta name="twitter:description" content="包装类">
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,399
+                  6,484
                 </span>
               
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  22
+                  26
                 </span>
               
             </div>
@@ -606,7 +606,61 @@
 </ul>
 <h2 id="方法引用与构造器引用"><a href="#方法引用与构造器引用" class="headerlink" title="方法引用与构造器引用"></a>方法引用与构造器引用</h2><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180821/C1jgl0CI0c.jpg?imageslim" alt="mark"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Converter</span></span>&#123;</span><br><span class="line">    <span class="function">Integer <span class="title">convert</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Converter converter1 = from -&gt; Integer.valueOf(from);</span><br><span class="line">Integer val1 = converter1.convert(<span class="string">"99"</span>);</span><br><span class="line">System.out.println(val);</span><br><span class="line">第一条语句可转换为：</span><br><span class="line">Converter converter1 = Integer :: valueOf;</span><br><span class="line"></span><br><span class="line">Converter converter2 = from -&gt; <span class="string">"fikt.org"</span>.indexOf(from);</span><br><span class="line">Integer value = converter2.convert(<span class="string">"it"</span>);</span><br><span class="line">System.out.println(value);</span><br><span class="line">第一条语句可转换为：</span><br><span class="line">Converter converter2 = <span class="string">"fikt.org"</span> :: indexOf;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyTest</span></span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">test</span><span class="params">(String a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyTest mt = (a,b,c) -&gt; a.substring(b,c);</span><br><span class="line">String str = mt.test(<span class="string">"Java I Love you"</span>,<span class="number">2</span>,<span class="number">9</span>);</span><br><span class="line">System.out.println(str);<span class="comment">//输出va I Lo</span></span><br><span class="line">第一条语句可转换为：</span><br><span class="line">MyTest mt = String :: substring;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">YourTest</span></span>&#123;</span><br><span class="line">    <span class="function">JFrame <span class="title">win</span><span class="params">(String title)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">YourTest yt = (String a) -&gt; <span class="keyword">new</span> JFrame(a);</span><br><span class="line">JFrame jf = yt.win(<span class="string">"我的窗口"</span>);</span><br><span class="line">System.out.println(jf);</span><br><span class="line">第一条语句可转换为：</span><br><span class="line">YourTest yt = JFrame :: <span class="keyword">new</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><h1 id="对象与垃圾回收"><a href="#对象与垃圾回收" class="headerlink" title="对象与垃圾回收"></a>对象与垃圾回收</h1>
+<h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><p>规则：</p>
+<ul>
+<li>枚举类默认继承java.lang.Enum类，而不是Object类，因此枚举类不能显示继承其他父类。</li>
+<li>使用enum定义、非抽象的枚举类默认使用final修饰，因此枚举类不能派生子类。</li>
+<li>枚举类的构造器只能使用private访问控制符。</li>
+<li>枚举类的所有实例必须在枚举类的第一行显示列出，否则这个枚举类永远不能产生实例。</li>
+<li>枚举类的实例由系统自动添加public static final修饰，无须显示添加。</li>
+<li>枚举类默认提供一个value()方法，可以很方便地遍历所有的枚举值。</li>
+</ul>
+<p>switch控制表达式使用枚举类型时，后面的case表达式中可以直接使用枚举类的名字，无须添加枚举类作为限定。</p>
+<p>java.lang.Enum提供的部分方法：</p>
+<ul>
+<li>int compareTo(E o)：与指定枚举对象比较顺序，该枚举对象位于指定枚举对象之后返回正整数。</li>
+<li>int ordinal()：返回枚举值在枚举类中的索引值。第一个枚举值的索引值为0。</li>
+<li>String toString()：返回枚举常量的名称。</li>
+<li>public static &lt;T extends Enum<t>&gt; T  valueOf(Class<t>enumType,String name)：返回指定枚举类中指定名称的枚举值。</t></t></li>
+</ul>
+<p>枚举类通常应设计为不可变类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Gender&#123;</span><br><span class="line">    MALE(<span class="string">"男"</span>),FEMALE(<span class="string">"女"</span>);</span><br><span class="line">    <span class="comment">//等同于public static final Genter MALE = new Gender("男");</span></span><br><span class="line">    <span class="comment">//等同于public static final Genter FEMALE = new Gender("女");</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Gender</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举类实现接口里的方法时，若需要每个枚举类呈现不同的行为方式，可以使用匿名内部类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Genter implements GenderDesc&#123;</span><br><span class="line">    MALE(<span class="string">"男"</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="comment">//方法实现</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    FEMALE(<span class="string">"女"</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="comment">//方法实现</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//其他部分</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举类里定义抽象方法时不能使用abstract关键字将枚举类定义为抽象类(因为系统会自动添加)，且定义每个枚举值时必须为抽象方法提供实现。</p>
+<h1 id="对象与垃圾回收"><a href="#对象与垃圾回收" class="headerlink" title="对象与垃圾回收"></a>对象与垃圾回收</h1><p> 垃圾回收特点：</p>
+<ul>
+<li>垃圾回收只负责回收堆内存中的对象，不会回收任何物理资源。(数据库连接、网络IO等)</li>
+<li>程序无法精确控制垃圾回收的进行，垃圾回收只会在合适的时候进行。</li>
+<li>在；垃圾回收机制回收任何对象之前，总会先调用它的finalize()方法，该方法可能使对象重新复活从而导致垃圾回收机制取消回收。</li>
+</ul>
+<p>对象的三种状态：</p>
+<ul>
+<li>可达状态：有一个以上的引用变量引用它。</li>
+<li>可恢复状态：不再有任何引用变量引用它，系统准备调用其finalize()方法进行资源清理。</li>
+<li>不可达状态：系统已经调用finalize()方法仍没有使该对象变成可达状态。系统准备真正回收该对象所占有的资源。</li>
+</ul>
+<p>强制垃圾回收：通知系统进行回收，但系统听不听话依然不确定。</p>
+<p>两种方法：</p>
+<ul>
+<li>调用System类的gc()静态方法：System.gc()</li>
+<li>调用Runtime类的gc()实例方法：Runtime.getRuntime().gc()</li>
+</ul>
+<p>finalize()方法的特点：</p>
+<ul>
+<li>永远不要主动调用某个对象的finalize()方法，该方法应交给垃圾回收机制调用。</li>
+<li>不要把finalize()当成一定会执行的方法。</li>
+<li>当JVM执行finalize()方法出现异常时，垃圾回收机制不会报告异常，程序继续进行。</li>
+<li>可通过System.runFinalization()方法强制垃圾回收机制调用可恢复对象的finalize()方法。</li>
+</ul>
+<p>对象的引用方式：</p>
+<ul>
+<li>强引用：一般方式。</li>
+<li>软引用：用SoftReference类实现，当一个对象只有软引用时且系统内存足够时，它不会被回收；当系统内存不足时，系统可能会回收它。</li>
+<li>弱引用：用WeakReference类实现，当一个对象只有弱引用时，当系统垃圾回收机制运行时，不管系统内存是否足够，总会回收该对象所占用的内存。</li>
+<li>虚引用：用PhantomReference类实现，完全类似于没有引用，对象感受不到虚引用的存在。虚引用必须和引用队列ReferenceQueue联合使用，主要用于跟踪对象被垃圾回收的状态。</li>
+</ul>
+
       
     </div>
     
@@ -816,7 +870,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共33.1k字</span>
+  <span class="post-count">博客全站共34.2k字</span>
 </div>
 
 <div class="powered-by">
