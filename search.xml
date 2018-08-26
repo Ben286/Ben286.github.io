@@ -2,8 +2,11 @@
 <search>
   <entry>
     <title><![CDATA[查找（一）]]></title>
-    <url>%2F2018%2F08%2F26%2F%E6%9F%A5%E6%89%BE%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <url>%2F2018%2F08%2F26%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%2F%E6%9F%A5%E6%89%BE%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
     <content type="text"></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[hexo布局架构及功能分析]]></title>
