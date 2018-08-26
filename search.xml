@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[查找（一）]]></title>
+    <url>%2F2018%2F08%2F26%2F%E6%9F%A5%E6%89%BE%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[hexo布局架构及功能分析]]></title>
     <url>%2F2018%2F08%2F21%2F%E5%85%B6%E4%BB%96%2Fhexo%E5%B8%83%E5%B1%80%E6%9E%B6%E6%9E%84%E5%8F%8A%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[部分文件或文件夹功能介绍： _config.yml hexo博客整体的配置文件 scaffolds post、page、draft的模板文件 post 即新发布的博客 page 主要是about、tags、categories等页面 draft 即草稿 themes 主题文件夹 source about 关于页面 _post 发布的.md微博存储位置 tags 标签页面 ~/blog/themes/next/source/css/_custom 第三方配置文件，在这里写可以覆盖主题默认配置 ~/blog/themes/next/source/css/_schemes/Pisces _brand.styl 修改title块的配置，即黑色背景部分 index.styl 总的配置文件，导入其他配置文件 _layout.styl 正文部分及侧边栏部分配置文件 _sidebar.styl 侧边栏配置文件，删除background-color部分在_layout.styl中的设置才能生效 themes/next/source/css/_variables base.styl 定义了颜色的名字以及其对应的颜色值 1234567$whitesmoke = #f5f5f5$gainsboro = #eee$gray-lighter = #ddd$grey-light = #ccc$grey = #bbb$grey-dark = #999$grey-dim = #666 Pisces.styl 定义了next主题的Pisces主题的各个部分的颜色配置 1234567891011121314151617// Header// --------------------------------------------------$subtitle-color = $gray-lighter// Sidebar// --------------------------------------------------$sidebar-offset = unit(hexo-config(&apos;sidebar.offset&apos;), px) if hexo-config(&apos;sidebar.offset&apos;) is a &apos;unit&apos;$sidebar-nav-hover-color = $orange$sidebar-highlight = $orange$site-author-image-width = 120px$site-author-image-border-width = 1px$site-author-image-border-color = $gainsboro$site-author-name-margin = 0$site-author-name-color = $black-deep 来源：www.holmeyoung.com]]></content>
