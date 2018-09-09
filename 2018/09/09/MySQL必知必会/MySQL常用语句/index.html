@@ -89,14 +89,17 @@
 
 
 
+<meta name="description" content="关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="栈的应用--逆波兰表示法">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/数据结构与算法/栈的应用-逆波兰表示法/index.html">
+<meta property="og:title" content="MySQL常用语句">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/MySQL必知必会/MySQL常用语句/index.html">
 <meta property="og:site_name" content="Ben Wen">
+<meta property="og:description" content="关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T03:49:44.091Z">
+<meta property="og:updated_time" content="2018-09-09T09:49:45.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="栈的应用--逆波兰表示法">
+<meta name="twitter:title" content="MySQL常用语句">
+<meta name="twitter:description" content="关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/29/数据结构与算法/栈的应用-逆波兰表示法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/09/MySQL必知必会/MySQL常用语句/"/>
 
 
 
 
 
-  <title>栈的应用--逆波兰表示法 | Ben Wen</title>
+  <title>MySQL常用语句 | Ben Wen</title>
   
 
 
@@ -303,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/数据结构与算法/栈的应用-逆波兰表示法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/MySQL必知必会/MySQL常用语句/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ben Wen">
@@ -320,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">栈的应用--逆波兰表示法</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL常用语句</h1>
         
 
         <div class="post-meta">
@@ -332,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T11:46:39+08:00">
-                2018-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-09T10:58:22+08:00">
+                2018-09-09
               </time>
             
 
@@ -355,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
+                  <a href="/categories/MySQL必知必会/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL必知必会</span>
                   </a>
                 </span>
 
@@ -386,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  191
                 </span>
               
 
@@ -423,7 +426,11 @@
       
 
       
-        
+        <p>关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。</p>
+<a id="more"></a>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用carshcourse数据库</span></span><br><span class="line"><span class="keyword">USE</span> carshcourse;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示可用的数据库列表</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示一个数据库内的表的列表</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示customers表的表列，对每个字段返回一行，行中包含字段名、数据类型、是否允许NULL、是否为主键/外键、默认值以及其他信息</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 上述代码的简写</span></span><br><span class="line"><span class="keyword">DESCRIBE</span> customers;</span><br></pre></td></tr></table></figure>
+<p>自动增量：在每个行添加到表中时，MySQ可以自动为每个行分配下一个可用编号，不用在添加一行时手动分配唯一值。</p>
+
       
     </div>
     
@@ -453,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/29/数据结构与算法/栈/" rel="next" title="栈">
-                <i class="fa fa-chevron-left"></i> 栈
+              <a href="/2018/08/26/数据结构与算法/查找（一）/" rel="next" title="查找（一）">
+                <i class="fa fa-chevron-left"></i> 查找（一）
               </a>
             
           </div>
@@ -463,8 +470,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/29/数据结构与算法/队列/" rel="prev" title="队列">
-                队列 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/09/MySQL必知必会/视图、存储过程、游标、触发器/" rel="prev" title="视图、存储过程、游标、触发器">
+                视图、存储过程、游标、触发器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
