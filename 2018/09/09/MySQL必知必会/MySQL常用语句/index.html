@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Ben Wen">
 <meta property="og:description" content="关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-09T09:49:45.559Z">
+<meta property="og:updated_time" content="2018-09-09T11:03:51.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL常用语句">
 <meta name="twitter:description" content="关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  191
+                  347
                 </span>
               
 
@@ -428,8 +428,9 @@
       
         <p>关键字：作为MySQL语言组成部分的一个保留字，不要用关键字命名一个表或者一个列。</p>
 <a id="more"></a>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用carshcourse数据库</span></span><br><span class="line"><span class="keyword">USE</span> carshcourse;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示可用的数据库列表</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示一个数据库内的表的列表</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示customers表的表列，对每个字段返回一行，行中包含字段名、数据类型、是否允许NULL、是否为主键/外键、默认值以及其他信息</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 上述代码的简写</span></span><br><span class="line"><span class="keyword">DESCRIBE</span> customers;</span><br></pre></td></tr></table></figure>
+<h1 id="SHOW语句"><a href="#SHOW语句" class="headerlink" title="SHOW语句"></a>SHOW语句</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用carshcourse数据库</span></span><br><span class="line"><span class="keyword">USE</span> carshcourse;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示可用的数据库列表</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示一个数据库内的表的列表</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示customers表的表列，对每个字段返回一行，行中包含字段名、数据类型、是否允许NULL、是否为主键/外键、默认值以及其他信息</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 上述代码的简写</span></span><br><span class="line"><span class="keyword">DESCRIBE</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示服务器错误或警告信息</span></span><br><span class="line"><span class="keyword">SHOW</span> ERROWS;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">WARNINGS</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示用户的安全权限</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GRANTS</span>;</span><br></pre></td></tr></table></figure>
 <p>自动增量：在每个行添加到表中时，MySQ可以自动为每个行分配下一个可用编号，不用在添加一行时手动分配唯一值。</p>
+<h1 id="SELECT语句"><a href="#SELECT语句" class="headerlink" title="SELECT语句"></a>SELECT语句</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prod_name <span class="keyword">from</span> products;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> products;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 检索不同的行</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> vend_id <span class="keyword">FROM</span> products;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 返回不多于5行</span></span><br><span class="line"><span class="keyword">SELECT</span> prod_name <span class="keyword">FROM</span> products <span class="keyword">LIMIT</span> <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 以第一个数为开始位置，返回不多于第二个数的行数(第一行为行0)</span></span><br><span class="line"><span class="keyword">SELECT</span> prod_name <span class="keyword">FROM</span> products <span class="keyword">LIMIT</span> <span class="number">5</span>,<span class="number">6</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 上述代码的替代语法</span></span><br><span class="line"><span class="keyword">SELECT</span> prod_name <span class="keyword">FROM</span> products <span class="keyword">LIMIT</span> <span class="number">6</span> <span class="keyword">OFFSET</span> <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用完全限定的表名</span></span><br><span class="line"><span class="keyword">SELECT</span> products.prod_name <span class="keyword">FROM</span> crashcourse.products;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -460,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/26/数据结构与算法/查找（一）/" rel="next" title="查找（一）">
-                <i class="fa fa-chevron-left"></i> 查找（一）
+              <a href="/2018/09/09/MySQL必知必会/数据库基础/" rel="next" title="数据库基础">
+                <i class="fa fa-chevron-left"></i> 数据库基础
               </a>
             
           </div>
@@ -524,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -544,7 +554,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -555,7 +565,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,6 +598,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SHOW语句"><span class="nav-number">1.</span> <span class="nav-text">SHOW语句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SELECT语句"><span class="nav-number">2.</span> <span class="nav-text">SELECT语句</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -615,7 +641,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共38.9k字</span>
+  <span class="post-count">博客全站共41.0k字</span>
 </div>
 
 <div class="powered-by">
