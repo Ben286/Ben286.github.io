@@ -15,6 +15,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -57,7 +64,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
@@ -75,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="o文蚊蚊o" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Ben Wen" type="application/atom+xml" />
 
 
 
@@ -86,10 +93,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="流程控制与数组">
 <meta property="og:url" content="http://yoursite.com/2018/08/12/java基础/流程控制与数组/index.html">
-<meta property="og:site_name" content="o文蚊蚊o">
+<meta property="og:site_name" content="Ben Wen">
 <meta property="og:description" content="带标签的break和continue">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-12T15:38:05.711Z">
+<meta property="og:updated_time" content="2018-08-16T08:50:08.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="流程控制与数组">
 <meta name="twitter:description" content="带标签的break和continue">
@@ -128,7 +135,7 @@
 
 
 
-  <title>流程控制与数组 | o文蚊蚊o</title>
+  <title>流程控制与数组 | Ben Wen</title>
   
 
 
@@ -158,7 +165,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">o文蚊蚊o</span>
+        <span class="site-title">Ben Wen</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -304,11 +311,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ben Wen">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="o文蚊蚊o">
+      <meta itemprop="name" content="Ben Wen">
     </span>
 
     
@@ -351,7 +358,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/java基础/" itemprop="url" rel="index">
                     <span itemprop="name">java基础</span>
                   </a>
                 </span>
@@ -382,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  226
+                  1,076
                 </span>
               
 
@@ -398,7 +416,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -423,6 +441,42 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">2</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">outer1:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">2</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">		<span class="keyword">break</span> outer1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">3</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">0!!!!!!2</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!2</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!2</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">outer2:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">3</span>;t++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; <span class="number">3</span>;u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">continue</span> outer2;</span><br><span class="line">		System.out.println(t + <span class="string">"!!!!!!"</span> + u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*输出：</span></span><br><span class="line"><span class="comment">0!!!!!!0</span></span><br><span class="line"><span class="comment">1!!!!!!0</span></span><br><span class="line"><span class="comment">2!!!!!!0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <h1 id="基础循环判断语句的注意事项"><a href="#基础循环判断语句的注意事项" class="headerlink" title="基础循环判断语句的注意事项"></a>基础循环判断语句的注意事项</h1><p>使用if…else语句时，应当把包含范围小的条件放在前面处理。</p>
+<h2 id="switch分支语句"><a href="#switch分支语句" class="headerlink" title="switch分支语句"></a>switch分支语句</h2><p>switch后的控制表达式的数据类型只能是byte、short、char、int四种整数类型、枚举类型（可以是任何枚举类型，而且case表达式中的值直接使用枚举值的名字，无须添加枚举类作为限定）、java.lang.String类型，不能是boolean类型。</p>
+<p>不能是StringBuffer、StringBuilder两种字符串类型。</p>
+<p>可以省略case后面的花括号。</p>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环的循环迭代语句没有与循环体放在一起，因此即使通过continue结束本次循环，循环迭代语句一样会执行。</p>
+<p>for循环可以有初始化语句，初始化变量个数不限，但声明语句只能有一个，若要声明多个变量，这些变量应该有相同的数据类型。</p>
+<h2 id="foreach循环"><a href="#foreach循环" class="headerlink" title="foreach循环"></a>foreach循环</h2><p>无须获得数组和集合的长度，无须根据索引来访问数组元素和集合元素，foreach循环自动遍历数组或集合中的每个元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k : a)&#123;</span><br><span class="line">    System.out.println(k);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常不会对循环变量进行赋值，没有意义且容易引起错误。</p>
+<p><strong>不能通过foreach循环改变数组元素的值。</strong></p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h2><p>定义数组的两种语法：</p>
+<ul>
+<li>int[] a;</li>
+<li>int a[];</li>
+</ul>
+<p>通常用第一种格式，因为int[]是一种引用类型，符合引用变量的定义语法，第二种格式正在逐渐淘汰。</p>
+<p><strong>定义数组时不能指定数组长度。</strong></p>
+<h2 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h2><h3 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a>静态初始化</h3><p>初始化时由程序员显示指定每个数组元素的初始值，由系统决定数组长度。</p>
+<p>格式：a = new type[]{x1,x2,…};</p>
+<p>type[] 必须与a的类型相同或为a的类型的子类。</p>
+<p>x1,x2…的类型必须与type[]的类型相同或为其子类的实例。</p>
+<p>简化格式：type[] a = {x1,x2,…};</p>
+<p>只有定义数组的同时执行数组初始化才支持使用简化的静态初始化。</p>
+<h3 id="动态初始化"><a href="#动态初始化" class="headerlink" title="动态初始化"></a>动态初始化</h3><p>初始化时程序员只指定数组的长度，由系统为数组元素分配初始值。</p>
+<p>格式：a = new type[length];</p>
+<ul>
+<li>整数类型值为0</li>
+<li>浮点数类型值为0.0</li>
+<li>字符类型值为’\u0000’</li>
+<li>布尔类型值为false</li>
+<li>引用类型值为null</li>
+</ul>
+<p><strong>不能同时使用静态初始化和动态初始化，即不能在进行数组初始化时既指定数组长度也为每个数组元素分配初始值。</strong></p>
+<p>终上所述，定义并初始化数组有三种方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] objArr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">12</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] objArr1 = &#123;<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] objArr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line"><span class="comment">// int[] objArr3 = new int[3]&#123;12,2,3&#125;;非法</span></span><br><span class="line"><span class="comment">// int[] objArr4 = new int[];非法</span></span><br></pre></td></tr></table></figure>
+<p>访问数组元素时，若索引值小于0或大于数组的长度，则抛出java.lang.ArrayIndexOutOfBoundsException: N。</p>
+<h2 id="定义并初始化二维数组"><a href="#定义并初始化二维数组" class="headerlink" title="定义并初始化二维数组"></a>定义并初始化二维数组</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] ae = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>][];</span><br><span class="line"><span class="comment">//ae这个引用变量指向一个长度为4的数组，每个数组元素都是null</span></span><br><span class="line"><span class="keyword">int</span>[][] at = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">4</span>];</span><br><span class="line"><span class="comment">//at这个引用变量指向一个长度为3的数组，每个数组元素都指向一个长度为4</span></span><br><span class="line"><span class="comment">//的int[]类型的数组，每个数组元素的值为0</span></span><br><span class="line"><span class="comment">//int[][] ae = new int[][4];非法</span></span><br><span class="line"><span class="keyword">int</span>[][] aw = <span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>&#125;&#125;;</span><br><span class="line">String[][] str9 = &#123;<span class="keyword">new</span> String[<span class="number">3</span>],<span class="keyword">new</span> String[]&#123;<span class="string">"hello!"</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -463,8 +517,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/13/1/" rel="prev" title="1">
-                1 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/16/java基础/面向对象基础/" rel="prev" title="面向对象基础">
+                面向对象基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -532,7 +586,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar_1.jpg"
+                src="/images/avatar.jpg"
                 alt="Ben Wen" />
             
               <p class="site-author-name" itemprop="name">Ben Wen</p>
@@ -546,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +611,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -599,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#带标签的break和continue"><span class="nav-number">1.</span> <span class="nav-text">带标签的break和continue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础循环判断语句的注意事项"><span class="nav-number">2.</span> <span class="nav-text">基础循环判断语句的注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#带标签的break和continue"><span class="nav-number">1.</span> <span class="nav-text">带标签的break和continue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础循环判断语句的注意事项"><span class="nav-number">2.</span> <span class="nav-text">基础循环判断语句的注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#switch分支语句"><span class="nav-number">2.1.</span> <span class="nav-text">switch分支语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环"><span class="nav-number">2.2.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#foreach循环"><span class="nav-number">2.3.</span> <span class="nav-text">foreach循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">3.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的定义"><span class="nav-number">3.1.</span> <span class="nav-text">数组的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的初始化"><span class="nav-number">3.2.</span> <span class="nav-text">数组的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态初始化"><span class="nav-number">3.2.1.</span> <span class="nav-text">静态初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态初始化"><span class="nav-number">3.2.2.</span> <span class="nav-text">动态初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义并初始化二维数组"><span class="nav-number">3.3.</span> <span class="nav-text">定义并初始化二维数组</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -630,22 +684,10 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22.5k字</span>
+  <span class="post-count">博客全站共41.0k字</span>
 </div>
 
 <div class="powered-by">
@@ -656,6 +698,7 @@
 <span id="busuanzi_container_site_pv">
     本站总访问量<span id="busuanzi_value_site_pv"></span>次
 </span>
+
         
 
 
@@ -1144,6 +1187,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
@@ -1151,6 +1216,7 @@
 
   undefined
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"haruto"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/mouse.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>

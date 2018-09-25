@@ -15,6 +15,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -57,7 +64,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
@@ -75,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="o文蚊蚊o" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Ben Wen" type="application/atom+xml" />
 
 
 
@@ -86,13 +93,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="盘点java数值运算中的那些骚操作">
 <meta property="og:url" content="http://yoursite.com/2018/08/12/java基础/盘点java数值运算中的那些骚操作/index.html">
-<meta property="og:site_name" content="o文蚊蚊o">
+<meta property="og:site_name" content="Ben Wen">
 <meta property="og:description" content="标识符和关键字">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/I5GEmdcifE.jpg?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/Emi0j32h6J.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-12T15:35:04.653Z">
+<meta property="og:updated_time" content="2018-08-16T07:57:05.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="盘点java数值运算中的那些骚操作">
 <meta name="twitter:description" content="标识符和关键字">
@@ -132,7 +139,7 @@
 
 
 
-  <title>盘点java数值运算中的那些骚操作 | o文蚊蚊o</title>
+  <title>盘点java数值运算中的那些骚操作 | Ben Wen</title>
   
 
 
@@ -162,7 +169,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">o文蚊蚊o</span>
+        <span class="site-title">Ben Wen</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -308,11 +315,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ben Wen">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="o文蚊蚊o">
+      <meta itemprop="name" content="Ben Wen">
     </span>
 
     
@@ -355,7 +362,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/java基础/" itemprop="url" rel="index">
                     <span itemprop="name">java基础</span>
                   </a>
                 </span>
@@ -452,7 +470,7 @@
 <li>直接使用Unicode值来表示字符型值：’\uXXXX’，其中XXXX代表一个十六进制整数。</li>
 </ul>
 <h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><p>java浮点型默认为double类型的值，若希望当成float类型处理需要加上f或F。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a = <span class="number">5.2388858694f</span>;</span><br><span class="line">System.out.println(a);<span class="comment">//输出5.238886</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> b = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(b);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> c = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(c);<span class="comment">//输出5.2388858694</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> d = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(d);<span class="comment">//输出5.238885879516602(小数点第六位之后为随机输出)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q1 = <span class="number">5.6</span>;</span><br><span class="line">System.out.println(q1);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q2 = <span class="number">5.6f</span>;</span><br><span class="line">System.out.println(q2);<span class="comment">//输出5.6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q3 = <span class="number">5</span>;</span><br><span class="line">System.out.println(q3);<span class="comment">//输出5.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a = <span class="number">5.2388858694f</span>;</span><br><span class="line">System.out.println(a);<span class="comment">//输出5.238886</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> b = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(b);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> c = <span class="number">5.2388858694</span>;</span><br><span class="line">System.out.println(c);<span class="comment">//输出5.2388858694</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> d = <span class="number">5.2388858694f</span>;</span><br><span class="line">System.out.println(d);<span class="comment">//输出5.238885679516602(小数点第六位之后为随机输出)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q1 = <span class="number">5.6</span>;</span><br><span class="line">System.out.println(q1);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q2 = <span class="number">5.6f</span>;</span><br><span class="line">System.out.println(q2);<span class="comment">//输出5.6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> q3 = <span class="number">5</span>;</span><br><span class="line">System.out.println(q3);<span class="comment">//输出5.0</span></span><br></pre></td></tr></table></figure>
 <p>正无穷大通过Double类或Float类的POSITIVE_INFINITY来表示，负无穷大通过Double类或Float类的NEGATIVE_INFINITY来表示，非数用Double类或Float类的NaN来表示。</p>
 <p><strong>所有正无穷大都相等，所有负无穷大也相等，NaN不与任何数值相等，与其本身也不相等。</strong></p>
 <p><strong>只有浮点数除以0才能得到正负无穷大，如果整数值除以0则会抛出异常：java.lang.ArithmeticException: / by zero(除以0异常)。</strong></p>
@@ -595,7 +613,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar_1.jpg"
+                src="/images/avatar.jpg"
                 alt="Ben Wen" />
             
               <p class="site-author-name" itemprop="name">Ben Wen</p>
@@ -609,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +638,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -693,22 +711,10 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22.5k字</span>
+  <span class="post-count">博客全站共41.0k字</span>
 </div>
 
 <div class="powered-by">
@@ -719,6 +725,7 @@
 <span id="busuanzi_container_site_pv">
     本站总访问量<span id="busuanzi_value_site_pv"></span>次
 </span>
+
         
 
 
@@ -1207,6 +1214,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
@@ -1214,6 +1243,7 @@
 
   undefined
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"haruto"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/mouse.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
