@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[JSP基础(二)]]></title>
+    <title><![CDATA[JSP基础(二)(全图警告)]]></title>
     <url>%2F2018%2F10%2F02%2FJavaWeb%2FJSP%E5%9F%BA%E7%A1%80(%E4%BA%8C)%2F</url>
     <content type="text"><![CDATA[JavaBean JSP动作元素定义 在JSP中使用JavaBean 与存取JavaBean有关的动作元素 JavaBean的四个作用范围 其他动作元素 include指令与include动作 CookieCookie的概念与作用 JSP中创建与使用Cookie Session与Cookie的对比 实际过程中要用java.net包中的两个工具类的静态方法实现对Cookie中所存中文字符串的编码与解码。 Model1 JSP中对时间类的处理及表单提交的方法]]></content>
       <categories>
