@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180924/fBK3LfEi9c.png?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180924/i5ha01GEh6.png?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180924/hDc5bCdcIh.png?imageslim">
-<meta property="og:updated_time" content="2018-10-02T08:55:12.406Z">
+<meta property="og:updated_time" content="2018-10-02T12:32:22.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP基础(一)">
 <meta name="twitter:description" content="Web应用程序：通过Web访问的应用程序，如淘宝网等。">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,963
+                  1,987
                 </span>
               
 
@@ -501,8 +501,7 @@
 </ul>
 <p>缓冲区：Buffer，内存中一块用来保存临时数据的区域。</p>
 <h2 id="表单有两种提交方式"><a href="#表单有两种提交方式" class="headerlink" title="表单有两种提交方式"></a>表单有两种提交方式</h2><p>表单：</p>
-<form name="regForm" action="动作" method="提交方式"></form>
-
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span> = <span class="string">"regForm"</span> <span class="attr">action</span> = <span class="string">"动作"</span> <span class="attr">method</span> = <span class="string">"提交方式"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>get：以明文方式通过URL提交数据，<strong>数据在URL中可以看到</strong>，最多不超过2KB，安全性低效率高，适合提交数据量小且对安全性要求不高的数据，如搜索、查询等功能。</li>
 <li>post：将用户提交的信息封装在HTML HEADER内，适合提交数量大、安全性高的用户信息，如注册、修改、上传等。</li>
@@ -511,6 +510,7 @@
 <li>请求重定向：客户端行为，response.sendRedirect(java.lang.String location)，括号内为要重定向的地址。<strong>从本质上来看等同于两次请求，前一次请求对象并不会被保存，地址栏的URL地址会改变。</strong></li>
 <li>请求转发：服务器行为，request.getRequestDispatcher(java.lang.String location).forward(request,response)，括号内为要转发的地址。<strong>从本质上来看是一次请求，转发后请求对象会被保存，地址栏的URL地址不会改变。</strong></li>
 </ul>
+<p><strong>超链接相当于请求重定向。</strong></p>
 <h2 id="out"><a href="#out" class="headerlink" title="out"></a>out</h2><p>JspWriter类的实例，向客户端输出内容的常用对象。</p>
 <p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180914/Bcm1g7Hk0e.png?imageslim" alt="mark"></p>
 <p><strong>clear()若抛出异常，则程序立即终止运行，后面的语句不会执行。clearBuffer()不会抛出异常，后面的语句依旧执行。</strong></p>
@@ -774,7 +774,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共41.1k字</span>
+  <span class="post-count">博客全站共41.2k字</span>
 </div>
 
 <div class="powered-by">
