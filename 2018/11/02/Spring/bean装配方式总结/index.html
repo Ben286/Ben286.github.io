@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/181103/iiiL9d9bDE.png?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/181103/g1h5DDB4BK.png?imageslim">
 <meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/181103/mBbeb2Leb7.jpg?imageslim">
-<meta property="og:updated_time" content="2018-11-12T16:11:13.415Z">
+<meta property="og:updated_time" content="2018-11-12T16:13:51.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bean装配方式总结">
 <meta name="twitter:description" content="Spring装配bean有三种主要的装配方式：  在XML中进行显示配置 在Java中进行显示配置 隐式的bean发现机制与自动装配">
@@ -442,7 +442,7 @@
 <p>关于依赖注入(DI)部分内容请去彭老斯的博客骚扰：<a href="https://pjmike.github.io/2018/08/20/%E6%B5%85%E6%9E%90Spring%E7%9A%84IoC%E5%92%8CDI/" target="_blank" rel="noopener">浅析Spring的IoC和DI</a></p>
 <p>以下案例均来自《spring实战(第4版)》第二章。截图均来自慕课视频<a href="https://www.imooc.com/learn/196" target="_blank" rel="noopener">Spring入门篇</a></p>
 <p>其中，SgtPeppers为具体的bean，实现了CompactDisc接口，CDPLayer也为具体的bean，实现了MediaPlayer接口，但它需要依赖于SgtPeppers。CDPlayerConfig为配置类，用于JavaConfig方式或自动装配方式的部分配置，CDPlayerTest为测试类，用于测试是否装配成功。它们均在soundsystem包中。</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先，什么是<strong>装配</strong>，书上的定义是：创建应用组件之间协作的行为。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，什么是<strong>装配</strong>，书上的定义是：创建应用组件之间协作的行为。</p>
 <p>在我的理解中，装配bean分为两个阶段，发现(注册)bean与连接bean(Spring注入)，即spring IoC容器先要知道它将管理哪些bean，再将相互之间有关联的bean连接起来，如将一个bean的实例作为参数传给另一个bean的构造器或者setter方法等。</p>
 <p>对于第一步，有两种方法，<strong>一是</strong>采用自动装配的@ComponentScan自动发现指定包下所有用@Component注解的bean，这种方法中，若未指定参数，则在当前包下寻找，反之则在作为参数的类所在的包下寻找，因此更优化的方式是在指定包下创建一个专门用来扫描的空接口。(当然，也可以采用XML配置context:component-scan标签)</p>
 <p><img src="http://p63sxxlje.bkt.clouddn.com/blog/181103/EIjKK3lcfk.png?imageslim" alt="mark"></p>
@@ -645,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动装配"><span class="nav-number">1.1.</span> <span class="nav-text">自动装配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于JavaConfig的装配"><span class="nav-number">1.2.</span> <span class="nav-text">基于JavaConfig的装配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于XML的装配"><span class="nav-number">1.3.</span> <span class="nav-text">基于XML的装配</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动装配"><span class="nav-number">2.</span> <span class="nav-text">自动装配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于JavaConfig的装配"><span class="nav-number">3.</span> <span class="nav-text">基于JavaConfig的装配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于XML的装配"><span class="nav-number">4.</span> <span class="nav-text">基于XML的装配</span></a></li></ol></div>
             
 
           </div>
