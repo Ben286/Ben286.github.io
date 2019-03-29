@@ -96,14 +96,14 @@
 <meta property="og:site_name" content="Ben Wen">
 <meta property="og:description" content="标识符和关键字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/I5GEmdcifE.jpg?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/Emi0j32h6J.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-16T07:57:05.984Z">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180812/0035HHhHD8.jpg?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180812/I5GEmdcifE.jpg?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180812/Emi0j32h6J.jpg?imageslim">
+<meta property="og:updated_time" content="2019-03-29T09:38:58.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="盘点java数值运算中的那些骚操作">
 <meta name="twitter:description" content="标识符和关键字">
-<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim">
+<meta name="twitter:image" content="http://qiniu.ben286.top/blog/180812/0035HHhHD8.jpg?imageslim">
 
 
 
@@ -450,7 +450,7 @@
 <li>不能含有空格。</li>
 </ul>
 <p>java一共包含50个关键字(至java 8)，均为小写。</p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180812/0035HHhHD8.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180812/0035HHhHD8.jpg?imageslim" alt="mark"></p>
 <p>goto和const为保留字，至今仍未使用(java 8)，但不代表以后不使用。</p>
 <p>三个特殊直接量：true、false、null。</p>
 <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>直接给出一个整数值默认为int类型。</p>
@@ -475,7 +475,7 @@
 <p><strong>所有正无穷大都相等，所有负无穷大也相等，NaN不与任何数值相等，与其本身也不相等。</strong></p>
 <p><strong>只有浮点数除以0才能得到正负无穷大，如果整数值除以0则会抛出异常：java.lang.ArithmeticException: / by zero(除以0异常)。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">5.13</span> / <span class="number">0</span>);<span class="comment">//输出Infinity</span></span><br><span class="line">System.out.println(-<span class="number">5.13</span> / <span class="number">0</span>);<span class="comment">//输出-Infinity</span></span><br><span class="line">System.out.println(<span class="number">0.0</span> / <span class="number">0.0</span>);<span class="comment">//输出NaN</span></span><br><span class="line">System.out.println(<span class="number">0</span> / <span class="number">0</span>);<span class="comment">//非法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> q = <span class="number">0.0</span>;</span><br><span class="line">System.out.println(q/q == Float.NaN);<span class="comment">//输出false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> s = Double.NEGATIVE_INFINITY;</span><br><span class="line"><span class="keyword">float</span> g = Float.NEGATIVE_INFINITY;</span><br><span class="line"><span class="keyword">double</span> m = Float.POSITIVE_INFINITY;</span><br><span class="line"><span class="comment">//float n = Double.POSITIVE_INFINITY;非法</span></span><br><span class="line"></span><br><span class="line">System.out.println(Double.NaN == Float.NaN);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(s == g);<span class="comment">//输出true</span></span><br><span class="line">System.out.println(s == m);<span class="comment">//输出false</span></span><br><span class="line">System.out.println(<span class="number">6.0</span> / <span class="number">0</span> == <span class="number">100.0</span> / <span class="number">0</span>);<span class="comment">//输出true</span></span><br></pre></td></tr></table></figure>
-<h1 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h1><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180812/I5GEmdcifE.jpg?imageslim" alt="mark"></p>
+<h1 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h1><p><img src="http://qiniu.ben286.top/blog/180812/I5GEmdcifE.jpg?imageslim" alt="mark"></p>
 <p>当把任何基本类型的值和字符串值进行连接运算时，基本类型的值将会自动转换为字符串类型。</p>
 <p>当一个算术表达式中包含多个基本类型的值时，整个算术表达式的数据类型将会发生自动提升：</p>
 <ul>
@@ -503,7 +503,7 @@
 <p>对于短路逻辑或||而言，如果第一个数返回true，则不再对第二个操作数求值，直接返回true；而不短路或|总是执行前后两个操作数。</p>
 <p>对于短路逻辑与&amp;&amp;而言，如果第一个数返回false，则不再对第二个操作数求值，直接返回false；而不短路与&amp;总是执行前后两个操作数。</p>
 <h2 id="运算符结合的结合性与优先级"><a href="#运算符结合的结合性与优先级" class="headerlink" title="运算符结合的结合性与优先级"></a>运算符结合的结合性与优先级</h2><p>除单目运算符、赋值运算符、三目运算符是从右到左结合的，其他运算符都是从左到右结合的。</p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180812/Emi0j32h6J.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180812/Emi0j32h6J.jpg?imageslim" alt="mark"></p>
 
       
     </div>
@@ -627,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

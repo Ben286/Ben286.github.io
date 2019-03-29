@@ -96,16 +96,16 @@
 <meta property="og:site_name" content="Ben Wen">
 <meta property="og:description" content="树：n(n &amp;gt;= 0)个结点的有限集。n = 0时为空树。在任意一棵非空树中：  有且仅有一个特定的称之为根的结点。 当n &amp;gt; 1时，其余结点可分为m(m &amp;gt; 0)个互不相交的有限集T1、T2、…、Tm，其中每一个集合本身又是一棵树，并且称为根的子树。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/Bg6faIfai5.jpg?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/lJhLgc7DFb.jpg?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/mFdAiJKC6m.jpg?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/0aD3Efdckh.jpg?imageslim">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/i51lmgd5b4.jpg?imageslim">
-<meta property="og:updated_time" content="2018-08-09T08:21:11.784Z">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180730/Bg6faIfai5.jpg?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180730/lJhLgc7DFb.jpg?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180730/mFdAiJKC6m.jpg?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180730/0aD3Efdckh.jpg?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180730/i51lmgd5b4.jpg?imageslim">
+<meta property="og:updated_time" content="2019-03-29T09:25:11.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树（一）">
 <meta name="twitter:description" content="树：n(n &amp;gt;= 0)个结点的有限集。n = 0时为空树。在任意一棵非空树中：  有且仅有一个特定的称之为根的结点。 当n &amp;gt; 1时，其余结点可分为m(m &amp;gt; 0)个互不相交的有限集T1、T2、…、Tm，其中每一个集合本身又是一棵树，并且称为根的子树。">
-<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180730/Bg6faIfai5.jpg?imageslim">
+<meta name="twitter:image" content="http://qiniu.ben286.top/blog/180730/Bg6faIfai5.jpg?imageslim">
 
 
 
@@ -457,12 +457,12 @@
 <p>如果将树中结点的各子树看成从左到右是有次序的，不能互换的，则称该树为<strong>有序树</strong>，否则称为<strong>无序树</strong>。</p>
 <p><strong>森林</strong>是m(m &gt;= 0)棵互不相交的树的集合。对树中每个结点而言，其子树的集合即为森林。</p>
 <h1 id="树的抽象数据类型"><a href="#树的抽象数据类型" class="headerlink" title="树的抽象数据类型"></a>树的抽象数据类型</h1><p><em>打星号内容为发博客时存有疑惑</em></p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180730/Bg6faIfai5.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180730/Bg6faIfai5.jpg?imageslim" alt="mark"></p>
 <h1 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h1><h2 id="双亲表示法"><a href="#双亲表示法" class="headerlink" title="双亲表示法"></a>双亲表示法</h2><p>假设一组连续空间存储树的结点。同时在每个结点中，附设一个指示器指示其双亲结点到链表中的位置。</p>
 <p>结构代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> TElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    TElemType data;<span class="comment">//结点数据</span></span><br><span class="line">    <span class="keyword">int</span> parent;<span class="comment">//双亲位置</span></span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PTNode nodes[MAX_TREE_SIZE];<span class="comment">//结点数组</span></span><br><span class="line">    <span class="keyword">int</span> r,n;<span class="comment">//根的位置和结点数</span></span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
 <p>我们约定根结点的双亲位置为-1。</p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180730/lJhLgc7DFb.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180730/lJhLgc7DFb.jpg?imageslim" alt="mark"></p>
 <p>可以扩展出长子域或右兄弟域，存储结构的设计非常灵活。</p>
 <h2 id="多重链表表示法"><a href="#多重链表表示法" class="headerlink" title="多重链表表示法"></a>多重链表表示法</h2><p>每个结点有多个指针域，每个指针指向一棵子树的根结点。</p>
 <p>方法一：</p>
@@ -472,15 +472,15 @@
 <p>​    每个结点指针域的个数等于该结点的度，专门取一个位置来存储结点指针域的个数。</p>
 <p>​    空间利用率高，但各个结点结构不同加上要维护结点的度的数值，运算时间上有损耗。</p>
 <h2 id="孩子表示法"><a href="#孩子表示法" class="headerlink" title="孩子表示法"></a>孩子表示法</h2><p>把每个结点的孩子结点排列起来，以单链表为存储结构，则n个结点有n个孩子链表，如果是叶子结点则单链表为空。然后n个头指针又组成一个线性表，采用顺序存储结构存放进一个一位数组中。</p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180730/mFdAiJKC6m.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180730/mFdAiJKC6m.jpg?imageslim" alt="mark"></p>
 <p>结构代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span>//孩子结点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> child;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; *ChildPtr;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>//表头结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    ChildPtr firstchild;</span><br><span class="line">&#125;CTBox;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>//树结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    CTBox nodes[MAX_TREE_SIZE]；</span><br><span class="line">    <span class="keyword">int</span> r,n;<span class="comment">//根的位置和结点数</span></span><br><span class="line">&#125;CTree;</span><br></pre></td></tr></table></figure>
 <p>难以找到某个结点的双亲，可以改进至双亲孩子表示法:</p>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180730/0aD3Efdckh.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180730/0aD3Efdckh.jpg?imageslim" alt="mark"></p>
 <h2 id="孩子兄弟表示法"><a href="#孩子兄弟表示法" class="headerlink" title="孩子兄弟表示法"></a>孩子兄弟表示法</h2><p>任意一棵树，它的结点的第一个孩子如果存在就是唯一的，它的右兄弟如果存在也是唯一的。因此，可以设置两个指针，分别指向该结点的第一个孩子和此结点的右兄弟。</p>
 <p>结构代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> *<span class="title">firstchild</span>,*<span class="title">rightsib</span>;</span></span><br><span class="line">&#125;CSNode,*CSTree;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180730/i51lmgd5b4.jpg?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/180730/i51lmgd5b4.jpg?imageslim" alt="mark"></p>
 <p>同样难以找到双亲，也可以再加个parent指针。</p>
 <p><strong>这个表示法最大的好处是把一棵复杂的树变成了一棵二叉树。</strong></p>
 
@@ -606,7 +606,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

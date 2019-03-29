@@ -96,12 +96,12 @@
 <meta property="og:site_name" content="Ben Wen">
 <meta property="og:description" content="栈：限定仅在表尾进行插入和删除操作的线性表。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180729/kDKAIJF72k.jpg?imageslim">
-<meta property="og:updated_time" content="2018-07-29T03:40:28.668Z">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/180729/kDKAIJF72k.jpg?imageslim">
+<meta property="og:updated_time" content="2019-03-29T09:28:15.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="栈">
 <meta name="twitter:description" content="栈：限定仅在表尾进行插入和删除操作的线性表。">
-<meta name="twitter:image" content="http://p63sxxlje.bkt.clouddn.com/blog/180729/kDKAIJF72k.jpg?imageslim">
+<meta name="twitter:image" content="http://qiniu.ben286.top/blog/180729/kDKAIJF72k.jpg?imageslim">
 
 
 
@@ -444,7 +444,7 @@
 <li>1进，2进，2出，3进，3出，1出，次序为231</li>
 </ul>
 <p><strong>肯定不会出现312的情况，因为若3先出栈，则3必曾进过栈，则1、2已经进栈了，则2在1之上，不可能1先出栈</strong></p>
-<h1 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h1><p><img src="http://p63sxxlje.bkt.clouddn.com/blog/180729/kDKAIJF72k.jpg?imageslim" alt="mark"></p>
+<h1 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h1><p><img src="http://qiniu.ben286.top/blog/180729/kDKAIJF72k.jpg?imageslim" alt="mark"></p>
 <h1 id="栈的顺序存储结构"><a href="#栈的顺序存储结构" class="headerlink" title="栈的顺序存储结构"></a>栈的顺序存储结构</h1><p>定义一个栈顶指针top来表示栈顶在数组中的位置</p>
 <h2 id="结构代码"><a href="#结构代码" class="headerlink" title="结构代码"></a>结构代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> SElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    SElemType data[MAXSIZE];</span><br><span class="line">    <span class="keyword">int</span> top;</span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
 <h2 id="进栈操作"><a href="#进栈操作" class="headerlink" title="进栈操作"></a>进栈操作</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入元素e为新的栈顶元素</span></span><br><span class="line"><span class="function">Status <span class="title">Push</span> <span class="params">(SqStack *S,SElemType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;top == MAXSIZE<span class="number">-1</span>)<span class="comment">//是否栈满</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    S-&gt;top++;</span><br><span class="line">    S-&gt;data[S-&gt;top] = e;<span class="comment">//将新插入的指针赋值给栈顶空间</span></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -586,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
