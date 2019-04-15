@@ -89,13 +89,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ben Wen">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+<meta name="description" content="Spring装配bean有三种主要的装配方式：  在XML中进行显示配置 在Java中进行显示配置 隐式的bean发现机制与自动装配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring bean装配方式总结">
+<meta property="og:url" content="http://yoursite.com/2018/11/02/JavaWeb/Spring bean装配方式总结/index.html">
 <meta property="og:site_name" content="Ben Wen">
+<meta property="og:description" content="Spring装配bean有三种主要的装配方式：  在XML中进行显示配置 在Java中进行显示配置 隐式的bean发现机制与自动装配">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/181103/EIjKK3lcfk.png?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/181103/EkD6Cf3C1K.png?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/181103/iiiL9d9bDE.png?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/181103/g1h5DDB4BK.png?imageslim">
+<meta property="og:image" content="http://qiniu.ben286.top/blog/181103/mBbeb2Leb7.jpg?imageslim">
+<meta property="og:updated_time" content="2019-04-15T10:51:46.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ben Wen">
+<meta name="twitter:title" content="Spring bean装配方式总结">
+<meta name="twitter:description" content="Spring装配bean有三种主要的装配方式：  在XML中进行显示配置 在Java中进行显示配置 隐式的bean发现机制与自动装配">
+<meta name="twitter:image" content="http://qiniu.ben286.top/blog/181103/EIjKK3lcfk.png?imageslim">
 
 
 
@@ -125,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/02/JavaWeb/Spring bean装配方式总结/"/>
 
 
 
 
 
-  <title>归档 | Ben Wen</title>
+  <title>Spring bean装配方式总结 | Ben Wen</title>
   
 
 
@@ -150,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 		<a href="https://github.com/Ben286"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,337 +298,244 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/JavaWeb/Spring bean装配方式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ben Wen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ben Wen">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Spring bean装配方式总结</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-02T21:26:30+08:00">
+                2018-11-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 28 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/30/数据结构与算法/树（二）--二叉树/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">树（二）--二叉树</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,493
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-30T18:15:19+08:00"
-              content="2018-07-30" >
-          07-30
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/30/数据结构与算法/树（一）/" itemprop="url">
-              
-                <span itemprop="name">树（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-30T18:14:56+08:00"
-              content="2018-07-30" >
-          07-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/29/数据结构与算法/栈/" itemprop="url">
-              
-                <span itemprop="name">栈</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-29T10:08:12+08:00"
-              content="2018-07-29" >
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>Spring装配bean有三种主要的装配方式：</p>
+<ul>
+<li>在XML中进行显示配置</li>
+<li>在Java中进行显示配置</li>
+<li>隐式的bean发现机制与自动装配</li>
+</ul>
+<a id="more"></a>
+<p>关于依赖注入(DI)部分内容请去彭老斯的博客骚扰：<a href="https://pjmike.github.io/2018/08/20/%E6%B5%85%E6%9E%90Spring%E7%9A%84IoC%E5%92%8CDI/" target="_blank" rel="noopener">浅析Spring的IoC和DI</a></p>
+<p>以下案例均来自《spring实战(第4版)》第二章。截图均来自慕课视频<a href="https://www.imooc.com/learn/196" target="_blank" rel="noopener">Spring入门篇</a></p>
+<p>其中，SgtPeppers为具体的bean，实现了CompactDisc接口，CDPLayer也为具体的bean，实现了MediaPlayer接口，但它需要依赖于SgtPeppers。CDPlayerConfig为配置类，用于JavaConfig方式或自动装配方式的部分配置，CDPlayerTest为测试类，用于测试是否装配成功。它们均在soundsystem包中。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，什么是<strong>装配</strong>，书上的定义是：创建应用组件之间协作的行为。</p>
+<p>在我的理解中，装配bean分为两个阶段，发现(注册)bean与连接bean(Spring注入)，即spring IoC容器先要知道它将管理哪些bean，再将相互之间有关联的bean连接起来，如将一个bean的实例作为参数传给另一个bean的构造器或者setter方法等。</p>
+<p>对于第一步，有两种方法，<strong>一是</strong>采用自动装配的@ComponentScan自动发现指定包下所有用@Component注解的bean，这种方法中，若未指定参数，则在当前包下寻找，反之则在作为参数的类所在的包下寻找，因此更优化的方式是在指定包下创建一个专门用来扫描的空接口。(当然，也可以采用XML配置context:component-scan标签)</p>
+<p><img src="http://qiniu.ben286.top/blog/181103/EIjKK3lcfk.png?imageslim" alt="mark"></p>
+<p><strong>二是</strong>手动指定注册哪些bean，即在XML 中配置bean标签或者@Configuration所注解的类中用@bean指定。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">//@ComponentScan</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPlayerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CompactDisc <span class="title">sgtPeppers</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SgtPeppers();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MediaPlayer <span class="title">cdPlayer</span><span class="params">(CompactDisc compactDisc)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CDPLayer(compactDisc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//实验证明@Configuration可加可不加，上述代码为基于JavaConfig配置，若改为自动装配则将两个方法全部注释掉并去掉@ComponentScan的注释，其余改动后面再说。</span></span><br></pre></td></tr></table></figure>
+<p>对于第二步，主要就是一般提及的三种情况：</p>
+<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>将需要被注册的bean用@Component注解，同时将需要被自动赋值的属性用@Autowired注解。<strong>这两个注解仅在自动装配中使用。</strong></p>
+<p><img src="http://qiniu.ben286.top/blog/181103/EkD6Cf3C1K.png?imageslim" alt="mark"></p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPLayer</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> CompactDisc cd;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CDPLayer</span><span class="params">(CompactDisc cd)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.cd = cd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"啦啦啦 "</span>);</span><br><span class="line">        cd.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，@Autowired可以注解在属性上、构造器上、setter方法上，甚至是任何方法上，只要该方法可以为属性赋值即可。<strong>需注意，该注解可以传入required属性值，默认为true，若改为false，可以避免因未给属性赋初始值而报的错，但在后面的语句中可能造成空指针异常。</strong>(@Autowired也可以用Java依赖注入规范中的@Inject替代，两者差别非常小)</p>
+<p>值得一提的是，自动装配出的bean的ID就是将该类的名称的第一个大写字母变为小写，若想改变ID，可以在@Component中指定。(也可以使用Java依赖注入规范中的@Named(…)替代，两者差别非常小)</p>
+<h2 id="基于JavaConfig的装配"><a href="#基于JavaConfig的装配" class="headerlink" title="基于JavaConfig的装配"></a>基于JavaConfig的装配</h2><p>如第一段代码所示，用@Bean指定将要注册哪些bean，bean之间具体的连接得手动配置。当然，这里面还有些小技巧，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> MediaPlayer <span class="title">cdPlayer</span><span class="params">(CompactDisc compactDisc)</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> CDPLayer(compactDisc);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> MediaPlayer <span class="title">cdPlayer</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> CDPLayer(sgtPeppers());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>很明显，第一种方式的可重用性与可维护性高于第二种，因此我更倾向于使用接口来进行参数传递。</p>
+<p><strong>值得注意的是，带有@bean注解的方法可以采用任何必要的Java功能来产生bean实例，这里存在的可能性仅仅受到Java语言的限制。</strong></p>
+<p><strong>另外，spring中默认bean都为单例，spring会拦截所有对它的调用，并确保直接返回该方法所创建的bean。</strong></p>
+<p><img src="http://qiniu.ben286.top/blog/181103/iiiL9d9bDE.png?imageslim" alt="mark"></p>
+<p><img src="http://qiniu.ben286.top/blog/181103/g1h5DDB4BK.png?imageslim" alt="mark"></p>
+<p>该方式装配出的bean的ID默认为方法名，若需修改，给@Bean的name参数赋值即可。</p>
+<h2 id="基于XML的装配"><a href="#基于XML的装配" class="headerlink" title="基于XML的装配"></a>基于XML的装配</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"aaa"</span> <span class="attr">class</span> = <span class="string">"soundsystem.SgtPeppers"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"bbb"</span> <span class="attr">class</span> = <span class="string">"soundsystem.CDPLayer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">ref</span>=<span class="string">"aaa"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>该方式中，bean标签用于注册bean，constructor-arg标签与property标签用于连接具有依赖关系的bean，也可以用于为属性赋字面量。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"aaa"</span> <span class="attr">class</span> = <span class="string">"aaa"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">ref</span> = <span class="string">"bbb"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span> = <span class="string">"My name is Ben Wen"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--若是set集合就用&lt;set&gt;标签，下同--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>111<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>222<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--aaa类的构造器需要传3个参数，一个bbb类的实例，一个字符串，一个List集合--&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"aaa"</span> <span class="attr">class</span> = <span class="string">"aaa"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span> = <span class="string">"xxx"</span> <span class="attr">ref</span> = <span class="string">"bbb"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span> = <span class="string">"yyy"</span> <span class="attr">value</span> = <span class="string">"My name is Ben Wen"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span> = <span class="string">"zzz"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>111<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>222<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--为aaa类的成员变量xxx赋的初始值为bbb类的实例，为成员变量yyy赋的初始值为字符串，为成员变量zzz赋的初始值为一个List集合--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然，构造器注入与设值注入分别有对应的简写，即c-命名空间与p-命名空间，但它们不能传入集合，详见书。</p>
+<p>此外，还有一种更实用的方式传入集合，及Spring util-命名空间，详见书。</p>
+<p><img src="http://qiniu.ben286.top/blog/181103/mBbeb2Leb7.jpg?imageslim" alt="mark"></p>
+<hr>
+<p>至此，三种常用的bean装配方式就说完了，总结起来就是，需要刻意去发现bean的只有自动装配一种方式，基于JavaConfig与XML的配置方式在注册bean的时候同时会将bean之间的依赖关系通过各自的方式手动表示出来。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/27/数据结构与算法/线性表/" itemprop="url">
-              
-                <span itemprop="name">线性表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-27T16:33:56+08:00"
-              content="2018-07-27" >
-          07-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/27/数据结构与算法/算法基础/" itemprop="url">
-              
-                <span itemprop="name">算法基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-27T11:26:09+08:00"
-              content="2018-07-27" >
-          07-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/27/数据结构与算法/数据结构基础/" itemprop="url">
-              
-                <span itemprop="name">数据结构基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-27T10:39:45+08:00"
-              content="2018-07-27" >
-          07-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/26/java应用/java读取txt文件/" itemprop="url">
-              
-                <span itemprop="name">java读取txt文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-26T00:00:51+08:00"
-              content="2018-07-26" >
-          07-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/21/其他/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-21T17:36:26+08:00"
-              content="2018-05-21" >
-          05-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+	<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+    </div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/02/JavaWeb/Servlet基础/" rel="next" title="Servlet基础">
+                <i class="fa fa-chevron-left"></i> Servlet基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/21/LeetCode/开刷LeetCode -- 第一题相关知识总结/" rel="prev" title="开刷LeetCode -- 第一题相关知识总结">
+                开刷LeetCode -- 第一题相关知识总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -626,6 +543,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -646,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -718,6 +648,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动装配"><span class="nav-number">2.</span> <span class="nav-text">自动装配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于JavaConfig的装配"><span class="nav-number">3.</span> <span class="nav-text">基于JavaConfig的装配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于XML的装配"><span class="nav-number">4.</span> <span class="nav-text">基于XML的装配</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -868,6 +814,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
